@@ -27,22 +27,6 @@ class LoginForm extends React.Component {
     event.preventDefault()
 
     this.props.signInUser(this.state.email, this.state.password)
-
-    // let loginObject = {
-    //   email: this.state.email,
-    //   password: this.state.password
-    // }
-    //
-    // fetch(loginURL, {
-    //   method: 'POST',
-    //   body: JSON.stringify(loginObject),
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   }
-    // })
-    // .then(res => res.json())
-    // .then(json => console.log(json))
-    //need to do something with the JWT
   }
 
   inputNewFirstName = (event) => {
