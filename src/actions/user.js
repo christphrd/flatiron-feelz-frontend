@@ -10,10 +10,7 @@ export function signInUser(email, password) {
   return dispatch => {
     fetch(loginURL, {
       method: 'POST',
-      body: JSON.stringify({
-        email: email,
-        password: password
-      }),
+      body: JSON.stringify(loginObject),
       headers: {
         'content-type': 'application/json'
       }

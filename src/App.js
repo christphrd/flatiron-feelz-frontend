@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import LoginForm from './components/LoginForm'
@@ -13,12 +14,20 @@ class App extends Component {
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-          <LoginForm />
-          {/* TESTING jwt in local storage: {localStorage.getItem("jwt") ? <p>Hello. You got jwt</p>: <LoginForm />} */}
+          {/* <LoginForm /> */}
+          {localStorage.getItem("jwt") ? <p>Hello.  got jwt</p>: <LoginForm />}
         </p>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, null)(App)
+
+// export default App
