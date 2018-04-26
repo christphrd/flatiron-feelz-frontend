@@ -5,6 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom'; //can make a login component
 //import {rootReducer} from './reducers/rootReducer';
 
 //const store = createStore(rootReducer) Needs a reducer/rootReducer is a placeholder
@@ -14,7 +15,9 @@ import { Provider } from 'react-redux';
 ReactDOM.render(
   //<Provider store={store}>
   <Provider>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>
   , document.getElementById('root'));
 registerServiceWorker();
