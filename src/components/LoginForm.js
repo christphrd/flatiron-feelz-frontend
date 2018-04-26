@@ -1,6 +1,7 @@
 import React from 'react'
 
-const signUpURL = `http://localhost:3000/api/v1/users`
+const loginURL = `http://localhost:3000/api/v1/login`
+const signUpURL = `http://localhost:3000/api/v1/signup`
 
 class LoginForm extends React.Component {
   state = {
@@ -22,22 +23,38 @@ class LoginForm extends React.Component {
 
   loginSubmit = (event) => {
     event.preventDefault()
+
+    let loginObject = {
+      email: this.state.email,
+      password: this.state.password
+    }
+
+    fetch(loginURL, {
+      method: 'POST',
+      body: JSON.stringify(loginObject),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(json => console.log(json))
+    //need to do something with the JWT
   }
 
   inputNewFirstName = (event) => {
-    this.setState({firstName: event.target.value}, () => console.log(this.state.firstName))
+    this.setState({firstName: event.target.value})
   }
 
   inputNewLastName = (event) => {
-    this.setState({lastName: event.target.value}, () => console.log(this.state.lastName))
+    this.setState({lastName: event.target.value})
   }
 
   inputNewEmail = (event) => {
-    this.setState({newEmail: event.target.value}, () => console.log(this.state.newEmail))
+    this.setState({newEmail: event.target.value})
   }
 
   inputNewPassword = (event) => {
-    this.setState({newPassword: event.target.value}, () => console.log(this.state.newPassword))
+    this.setState({newPassword: event.target.value})
   }
 
   signUpSubmit = (event) => {
@@ -60,6 +77,7 @@ class LoginForm extends React.Component {
     })
     .then(res => res.json())
     .then(json => console.log(json))
+    //need to do something with the JWT
   }
 
   render(){
