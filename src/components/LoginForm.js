@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signInUser, signUpUser } from '../actions/user'
 
-// const loginURL = `http://localhost:3000/api/v1/login`
-const signUpURL = `http://localhost:3000/api/v1/signup`
-
 class LoginForm extends React.Component {
   state = {
     email: "",
@@ -56,16 +53,7 @@ class LoginForm extends React.Component {
       password_confirmation: this.state.newPassword
     }
 
-    fetch(signUpURL, {
-      method: 'POST',
-      body: JSON.stringify(signUpObject),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(json => console.log(json))
-    //need to do something with the JWT
+    this.props.signUpUser(signUpObject)
   }
 
   render(){

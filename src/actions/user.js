@@ -1,4 +1,5 @@
 const loginURL = `http://localhost:3000/api/v1/login`
+const signUpURL = `http://localhost:3000/api/v1/signup`
 
 export function signInUser(email, password) {
   let loginObject = {
@@ -21,52 +22,21 @@ export function signInUser(email, password) {
     //goes to another function in this file to send to usersReducer
     .then(json => {dispatch(loginUser(json))})
   }
-  // return dispatch => {
-  //   fetch(loginURL, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       user: {
-  //         email,
-  //         password
-  //       }
-  //     })
-  //   })
-  //     .then(response => response.json())
-  //     .then(userData => {
-  //       dispatch(loginUser(userData));
-  //     });
-  // };
 }
 
-// export function loginError(json) {
-//   debugger;
-// }
-
-export function signUpUser(email, password) {
+export function signUpUser(signUpObject) {
   //use thunk here
   return dispatch => {
-    fetch("http://localhost:3000/api/v1/signup", {
-      method: "POST",
+    fetch(signUpURL, {
+      method: 'POST',
+      body: JSON.stringify(signUpObject),
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          email: email,
-          password: password
-        }
-      })
+        'content-type': 'application/json'
+      }
     })
-      .then(response => response.json())
-      .then(userData => {
-        dispatch(loginUser(userData));
-      });
-  };
+    .then(res => res.json())
+    .then(json => dispatch(loginUser(json)))
+  }
 }
 
 export function loginUser(userData) {
@@ -77,7 +47,13 @@ export function loginUser(userData) {
   };
 }
 
-export function loadingUser() {
+export function logOutUser() {
+  return {
+    type: "LOG_OUT_USER"
+  };
+}
+
+/*export function loadingUser() {
   return {
     type: "LOADING_USER"
   };
@@ -98,11 +74,6 @@ export function getCurrentUser() {
   };
 }
 
-export function logOutUser() {
-  return {
-    type: "LOG_OUT_USER"
-  };
-}
 
 export function setUsers(usersData) {
   return {
@@ -123,4 +94,4 @@ export function getUsers() {
     .then(response => response.json())
     .then(users => dispatch(setUsers(users)))
   }
-}
+}*/
