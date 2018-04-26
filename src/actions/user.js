@@ -1,30 +1,48 @@
+const loginURL = `http://localhost:3000/api/v1/login`
+
 export function signInUser(email, password) {
+  let loginObject = {
+    email: email,
+    password: password
+  }
+
   return dispatch => {
-    fetch("http://localhost:3000/api/v1/login", {
-      method: "POST",
+    fetch(loginURL, {
+      method: 'POST',
+      body: JSON.stringify(loginObject),
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({
-        user: {
-          username,
-          password
-        }
-      })
+        'content-type': 'application/json'
+      }
     })
-      .then(response => response.json())
-      .then(userData => {
-        dispatch(loginUser(userData));
-      });
-  };
+    .then(res => res.json())
+    .then(json => {dispatch(loginUser(json))})
+  }
+  // return dispatch => {
+  //   fetch(loginURL, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       user: {
+  //         email,
+  //         password
+  //       }
+  //     })
+  //   })
+  //     .then(response => response.json())
+  //     .then(userData => {
+  //       dispatch(loginUser(userData));
+  //     });
+  // };
 }
 
 // export function loginError(json) {
 //   debugger;
 // }
 
-export function signUpUser(username, password) {
+export function signUpUser(email, password) {
   //use thunk here
   return dispatch => {
     fetch("http://localhost:3000/api/v1/signup", {
@@ -35,7 +53,7 @@ export function signUpUser(username, password) {
       },
       body: JSON.stringify({
         user: {
-          username: username,
+          email: email,
           password: password
         }
       })

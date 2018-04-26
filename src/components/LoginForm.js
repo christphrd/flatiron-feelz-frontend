@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { signInUser, signUpUser } from '../actions/user'
 
-const loginURL = `http://localhost:3000/api/v1/login`
+// const loginURL = `http://localhost:3000/api/v1/login`
 const signUpURL = `http://localhost:3000/api/v1/signup`
 
 class LoginForm extends React.Component {
@@ -14,30 +16,32 @@ class LoginForm extends React.Component {
   }
 
   inputEmail = (event) => {
-    this.setState({email: event.target.value}, () => console.log(this.state.email))
+    this.setState({email: event.target.value})
   }
 
   inputPassword = (event) => {
-    this.setState({password: event.target.value}, () => console.log(this.state.password))
+    this.setState({password: event.target.value})
   }
 
   loginSubmit = (event) => {
     event.preventDefault()
 
-    let loginObject = {
-      email: this.state.email,
-      password: this.state.password
-    }
+    this.props.signInUser(this.state.email, this.state.password)
 
-    fetch(loginURL, {
-      method: 'POST',
-      body: JSON.stringify(loginObject),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(json => console.log(json))
+    // let loginObject = {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // }
+    //
+    // fetch(loginURL, {
+    //   method: 'POST',
+    //   body: JSON.stringify(loginObject),
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   }
+    // })
+    // .then(res => res.json())
+    // .then(json => console.log(json))
     //need to do something with the JWT
   }
 
@@ -102,4 +106,15 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm
+// export default LoginForm
+
+const mapStateToProps = state => {
+  return {
+    ...state.usersReducer
+  }
+}
+
+export default connect(mapStateToProps, {
+  signInUser,
+  signUpUser
+})(LoginForm)
