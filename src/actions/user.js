@@ -15,6 +15,7 @@ export function signInUser(email, password) {
       }
     })
     .then(res => res.json())
+    //goes to another function in this file to send to usersReducer
     .then(json => {dispatch(loginUser(json))})
   }
   // return dispatch => {
@@ -66,7 +67,7 @@ export function signUpUser(email, password) {
 }
 
 export function loginUser(userData) {
-  debugger
+  console.log(userData)
   return {
     type: "LOGIN_USER",
     payload: userData

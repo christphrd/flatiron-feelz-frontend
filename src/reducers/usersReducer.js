@@ -1,5 +1,5 @@
 export default function usersReducer(
-  state = { username: null, loggedIn: false, loading: false, users: [] },
+  state = { email: null, loggedIn: false, loading: false, users: [] },
   action
 ) {
   switch (action.type) {
@@ -10,13 +10,13 @@ export default function usersReducer(
       localStorage.setItem("jwt", action.payload.jwt);
       return {
         ...state,
-        username: action.payload.username,
+        email: action.payload.email,
         loggedIn: true,
         loading: false
       };
     case "LOG_OUT_USER":
       localStorage.removeItem("jwt");
-      return { ...state, username: null, loggedIn: false };
+      return { ...state, email: null, loggedIn: false };
     case "SET_USERS":
       return {...state, users: action.payload}
     default:
