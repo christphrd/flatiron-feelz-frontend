@@ -1,5 +1,5 @@
 export default function usersReducer(
-  state = { email: null, firstName: null, lastName: null, loggedIn: false, loading: false, users: [] },
+  state = { userID: null, email: null, firstName: null, lastName: null, loggedIn: false, loading: false, users: [] },
   action
 ) {
   switch (action.type) {
@@ -12,6 +12,7 @@ export default function usersReducer(
       }
       return {
         ...state,
+        userID: action.payload.id,
         email: action.payload.email,
         firstName: action.payload.first_name,
         lastName: action.payload.last_name,
