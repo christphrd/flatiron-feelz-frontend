@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 import LoginForm from './components/LoginForm'
+import UserHomePage from './components/UserHomePage'
 import {getCurrentUser} from './actions/user.js'
 
 class App extends Component {
@@ -17,7 +18,11 @@ class App extends Component {
   render() {
     console.log(this.props)
     if (this.props.usersReducer.loggedIn){
-      return(<p>Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt</p>)
+      return(
+        <div>
+          Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt
+          <UserHomePage />
+        </div>)
     } else {
       return (
         <div className="App">
@@ -27,9 +32,9 @@ class App extends Component {
           </header>
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
-            <LoginForm />
-            {/* {localStorage.getItem("jwt") ? : <LoginForm />} */}
           </p>
+          <LoginForm />
+          {/* {localStorage.getItem("jwt") ? : <LoginForm />} */}
         </div>
       );
     }
