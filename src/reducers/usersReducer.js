@@ -21,7 +21,7 @@ export default function usersReducer(
       };
     // case "LOG_OUT_USER":
     //   localStorage.removeItem("jwt");
-    //   return { ...state, email: null, loggedIn: false };
+    //   return { ...state, email: null, firstName: null, lastName: null, loggedIn: false };
     // case "SET_USERS":
     //   return {...state, users: action.payload}
     default:
