@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserFeelingsForm from './UserFeelingsForm'
-import { signInUser, signUpUser } from '../actions/user'
+import { shareFeeling } from '../actions/feeling'
 
 class UserHomePage extends React.Component {
   state = {
@@ -9,7 +9,9 @@ class UserHomePage extends React.Component {
   }
 
   inputFeelingz = (event) => {
-    console.log('typing in textarea for feelignz', event.target.name, event.target.value)
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   submitFeelings = (event) => {
@@ -22,11 +24,6 @@ class UserHomePage extends React.Component {
     console.log(this.props)
     return(
       <div>
-        {/* <h1>Share Feelings</h1>
-        <form onSubmit={this.submitFeelings}>
-          <textarea rows="4" cols="50" name="feelings" placeholder="Feelz" onChange={this.inputFeelingz}></textarea><br></br>
-          <input type="submit" value="Share your Feelings"/>
-        </form> */}
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>
     )
@@ -42,6 +39,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  signInUser,
-  signUpUser
+  shareFeeling
 })(UserHomePage)

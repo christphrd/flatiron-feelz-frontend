@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signInUser, signUpUser } from '../actions/user'
 
 class UserFeelingsForm extends React.Component {
 
@@ -26,7 +25,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
-  signInUser,
-  signUpUser
-})(UserFeelingsForm)
+export default connect(mapStateToProps, null)(UserFeelingsForm)
