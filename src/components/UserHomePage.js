@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserFeelingsForm from './UserFeelingsForm'
-import { shareFeeling } from '../actions/feeling'
+import UserFeelingsForm from './UserFeelingsForm';
+
+const postURL = `http://localhost:3000/api/v1/posts`
 
 class UserHomePage extends React.Component {
   state = {
@@ -22,7 +23,15 @@ class UserHomePage extends React.Component {
       feelings: this.state.feelings
     }
 
-    this.props.shareFeeling(feelingsObject)
+    fetch(postURL, {
+      method: 'POST',
+      body: JSON.stringify(feelingsObject),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .then(json => console.log(json))
   }
 
   render(){
@@ -42,6 +51,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
-  shareFeeling
-})(UserHomePage)
+export default connect(mapStateToProps, null)(UserHomePage)
