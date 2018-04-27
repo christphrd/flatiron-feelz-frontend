@@ -15,9 +15,9 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.usersReducer.loggedIn)
+    console.log(this.props)
     if (this.props.usersReducer.loggedIn){
-      return(<p>Hello.  got jwt</p>)
+      return(<p>Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt</p>)
     } else {
       return (
         <div className="App">
