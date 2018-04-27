@@ -12,34 +12,16 @@ class LoginForm extends React.Component {
     newPassword: ""
   }
 
-  inputEmail = (event) => {
-    this.setState({email: event.target.value})
-  }
-
-  inputPassword = (event) => {
-    this.setState({password: event.target.value})
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   loginSubmit = (event) => {
     event.preventDefault()
 
     this.props.signInUser(this.state.email, this.state.password)
-  }
-
-  inputNewFirstName = (event) => {
-    this.setState({firstName: event.target.value})
-  }
-
-  inputNewLastName = (event) => {
-    this.setState({lastName: event.target.value})
-  }
-
-  inputNewEmail = (event) => {
-    this.setState({newEmail: event.target.value})
-  }
-
-  inputNewPassword = (event) => {
-    this.setState({newPassword: event.target.value})
   }
 
   signUpSubmit = (event) => {
@@ -61,16 +43,16 @@ class LoginForm extends React.Component {
       <div>
         <h1>Login</h1>
         <form onSubmit={this.loginSubmit}>
-          <input type="text" placeholder="Email" onChange={this.inputEmail}></input>
-          <input type="password" placeholder="Password" onChange={this.inputPassword}></input>
+          <input name="email" type="text" placeholder="Email" onChange={this.handleChange}></input>
+          <input name="password" type="password" placeholder="Password" onChange={this.handleChange}></input>
           <input type="submit"/>
         </form>
         <h1>Sign Up</h1>
         <form onSubmit={this.signUpSubmit}>
-          <input type="text" placeholder="First Name" onChange={this.inputNewFirstName}></input>
-          <input type="text" placeholder="Last Name" onChange={this.inputNewLastName}></input>
-          <input type="text" placeholder="Email" onChange={this.inputNewEmail}></input>
-          <input type="password" placeholder="Password" onChange={this.inputNewPassword}></input>
+          <input name="firstName" type="text" placeholder="First Name" onChange={this.handleChange}></input>
+          <input name="lastName" type="text" placeholder="Last Name" onChange={this.handleChange}></input>
+          <input name="newEmail" type="text" placeholder="Email" onChange={this.handleChange}></input>
+          <input name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></input>
           <input type="submit"/>
         </form>
       </div>
