@@ -1,5 +1,6 @@
 const loginURL = `http://localhost:3000/api/v1/login`
 const signUpURL = `http://localhost:3000/api/v1/signup`
+const currentUserURL = `http://localhost:3000/api/v1/current_user`
 
 export function signInUser(email, password) {
   let loginObject = {
@@ -37,7 +38,6 @@ export function signUpUser(signUpObject) {
 }
 
 export function loginUser(userData) {
-  console.log(userData)
   return {
     type: "LOGIN_USER",
     payload: userData
@@ -50,29 +50,32 @@ export function logOutUser() {
   };
 }
 
-/*export function loadingUser() {
-  return {
-    type: "LOADING_USER"
-  };
-}
-
+//check from App.js to see if already loggedIn so it won't show the welcome page
 export function getCurrentUser() {
   return dispatch => {
     dispatch(loadingUser());
-    fetch("http://localhost:3000/api/v1/current_user", {
+    fetch(currentUserURL, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwt")}`
       }
     })
-      .then(response => response.json())
-      .then(userData => dispatch(loginUser(userData)));
+    .then(response => response.json())
+    .then(userData => dispatch(loginUser(userData)));
+  };
+}
+
+//loading is used for when fetch request is checking with the backend
+export function loadingUser() {
+  return {
+    type: "LOADING_USER"
   };
 }
 
 
-export function setUsers(usersData) {
+
+/*export function setUsers(usersData) {
   return {
     type: "SET_USERS",
     payload: usersData
