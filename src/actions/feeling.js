@@ -3,7 +3,7 @@ const postURL = `http://localhost:3000/api/v1/posts`
 export function shareFeeling(feelingsObject) {
   fetch(postURL, {
   method: 'POST',
-  body: JSON.stringify({feelingsObject),
+  body: JSON.stringify(feelingsObject),
   headers: {
     'content-type': 'application/json'
   }
