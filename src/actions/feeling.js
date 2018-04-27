@@ -1,7 +1,16 @@
 const postURL = `http://localhost:3000/api/v1/posts`
 
 export function shareFeeling(feelingsObject) {
-  console.log('hitting action')
+  fetch(postURL, {
+  method: 'POST',
+  body: JSON.stringify({feelingsObject),
+  headers: {
+    'content-type': 'application/json'
+  }
+})
+.then(res => res.json())
+.then(json => console.log(json))
+//not sure if I need to dispatch to reducer
 }
 
 /*export function signInUser(email, password) {

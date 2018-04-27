@@ -17,11 +17,15 @@ class UserHomePage extends React.Component {
   submitFeelings = (event) => {
     event.preventDefault()
 
-    console.log('clicking submit')
+    let feelingsObject = {
+      user_id: this.props.userID,
+      feelings: this.state.feelings
+    }
+
+    this.props.shareFeeling(feelingsObject)
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
