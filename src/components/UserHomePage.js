@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserFeelingsForm from './UserFeelingsForm';
+import DogSpiritSelection from './DogSpiritSelection';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 
 class UserHomePage extends React.Component {
   state = {
+    user_id: this.props.userID,
     feelings: null
   }
 
@@ -18,14 +20,9 @@ class UserHomePage extends React.Component {
   submitFeelings = (event) => {
     event.preventDefault()
 
-    let feelingsObject = {
-      user_id: this.props.userID,
-      feelings: this.state.feelings
-    }
-
     fetch(postURL, {
       method: 'POST',
-      body: JSON.stringify(feelingsObject),
+      body: JSON.stringify(this.state),
       headers: {
         'content-type': 'application/json'
       }
@@ -36,6 +33,7 @@ class UserHomePage extends React.Component {
   render(){
     return(
       <div>
+        <DogSpiritSelection />
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>
     )
