@@ -1,11 +1,13 @@
 import React from 'react';
 
-const UserItem = (props) => {
-  return(
-    <div id={props.id} onClick={props.goToShow}>
-      {props.user.first_name} {props.user.last_name}
-    </div>
-  )
+class UserItem extends React.Component {
+  render(){
+    return(
+      <div id={this.props.id} onClick={this.props.goToShow}>
+        {this.props.user.first_name} {this.props.user.last_name}
+      </div>
+    )
+  }
 }
 
 export default UserItem

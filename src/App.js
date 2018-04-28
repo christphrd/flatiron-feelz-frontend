@@ -27,7 +27,7 @@ class App extends Component {
     } else if (this.props.usersReducer.loggedIn){
       return(
         <div>
-          Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt
+          <h1>Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt</h1>
           <LoggedInContainer />
         </div>
       )

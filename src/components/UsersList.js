@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { getUsers } from '../actions/user';
 import UserItem from './UserItem'
 
-const usersURL = `http://localhost:3000/api/v1/users`
+const usersURL = `http://localhost:3000/api/v1/users/`
 
 class UsersList extends React.Component {
   state = {
@@ -19,7 +19,6 @@ class UsersList extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
         <h1>People in the Feelings Circle</h1>
