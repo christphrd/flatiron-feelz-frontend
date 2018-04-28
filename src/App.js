@@ -18,15 +18,19 @@ class App extends Component {
 
   render() {
     console.log(this.props)
-    // if (this.props.usersReducer.loading) {
-    //   <Loading />
-    // } else
-    if (this.props.usersReducer.loggedIn){
+    if (this.props.usersReducer.loading) {
+      return (
+        <div>
+          <Loading />
+        </div>
+      )
+    } else if (this.props.usersReducer.loggedIn){
       return(
         <div>
           Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt
           <LoggedInContainer />
-        </div>)
+        </div>
+      )
     } else {
       return (
         <div className="App">
