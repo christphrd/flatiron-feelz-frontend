@@ -5,21 +5,22 @@ import UserShowPage from './UserShowPage';
 
 class LoggedInContainer extends React.Component {
   state = {
-    home: true
+    home: true,
+    clickedUserID: null
   }
 
   goToShow = (event) => {
-    console.log(event.target)
     //Take the id and fetch the user info. then change home state to false so renders userShowPage
     this.setState({
-      home: false
+      home: false,
+      clickedUserID: event.target.id
     })
   }
 
   render(){
     return(
       <div>
-        {this.state.home ? <UserHomePage /> : <UserShowPage />}
+        {this.state.home ? <UserHomePage /> : <UserShowPage clickedUserID={this.state.clickedUserID}/>}
         <UsersList goToShow={this.goToShow} />
       </div>
     )
