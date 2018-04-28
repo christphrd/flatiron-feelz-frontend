@@ -50,9 +50,9 @@ class LoginForm extends React.Component {
         </form>
         <h1>Sign Up</h1>
         <form onSubmit={this.signUpSubmit}>
-          <input name="firstName" type="text" placeholder="First Name" onChange={this.handleChange}></input>
-          <input name="lastName" type="text" placeholder="Last Name" onChange={this.handleChange}></input>
-          <input name="newEmail" type="text" placeholder="Email" onChange={this.handleChange}></input>
+          <input name="firstName" type="text" placeholder="First Name (required)" onChange={this.handleChange}></input>
+          <input name="lastName" type="text" placeholder="Last Name (required)" onChange={this.handleChange}></input>
+          <input name="newEmail" type="text" placeholder="Email (unique & required)" onChange={this.handleChange}></input>
           <input name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></input>
           <input type="submit"/>
         </form>
