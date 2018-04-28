@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
+import {getCurrentUser} from './actions/user.js';
 import LoginForm from './components/LoginForm';
 import LoggedInContainer from './components/LoggedInContainer';
-import {getCurrentUser} from './actions/user.js';
 import Loading from './components/Loading';
 
 class App extends Component {
@@ -27,7 +27,6 @@ class App extends Component {
     } else if (this.props.usersReducer.loggedIn){
       return(
         <div>
-          <h1>Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt</h1>
           <LoggedInContainer />
         </div>
       )
