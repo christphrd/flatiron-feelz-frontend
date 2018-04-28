@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import LoginForm from './components/LoginForm'
-import UserHomePage from './components/UserHomePage'
-import {getCurrentUser} from './actions/user.js'
+import LoginForm from './components/LoginForm';
+import LoggedInContainer from './components/LoggedInContainer';
+import {getCurrentUser} from './actions/user.js';
+import Loading from './components/Loading';
 
 class App extends Component {
 
@@ -17,11 +18,14 @@ class App extends Component {
 
   render() {
     console.log(this.props)
+    // if (this.props.usersReducer.loading) {
+    //   <Loading />
+    // } else
     if (this.props.usersReducer.loggedIn){
       return(
         <div>
           Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt
-          <UserHomePage />
+          <LoggedInContainer />
         </div>)
     } else {
       return (
@@ -34,7 +38,6 @@ class App extends Component {
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
           <LoginForm />
-          {/* {localStorage.getItem("jwt") ? : <LoginForm />} */}
         </div>
       );
     }
