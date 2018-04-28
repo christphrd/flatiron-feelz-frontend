@@ -5,7 +5,8 @@ class DogSpiritSelection extends React.Component {
     return (
       <div>
         In DogSpiritSelection component.
-        <button onClick={()=> console.log('dog button')}>Fetch a Spirit Dog to rep your Feelz</button>
+        {this.props.dogSpirit ? <img src={this.props.dogSpirit} alt="Dog Spirit"></img> : null}
+        <button onClick={this.props.selectDogSpirit}>Fetch a Spirit Dog to rep your Feelz</button>
       </div>
     )
   }

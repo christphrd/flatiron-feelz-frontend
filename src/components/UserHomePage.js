@@ -4,15 +4,29 @@ import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 
 const postURL = `http://localhost:3000/api/v1/posts`
+const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 
 class UserHomePage extends React.Component {
   state = {
-    user_id: this.props.userID,
-    feelings: null
+    userID: this.props.userID,
+    feelings: null,
+    dogSpirit: null
+  }
+
+  selectDogSpirit = (event) => {
+    console.log('officially the userhomepage comp. passed into dogspiritselection ', event.target)
+
+    fetch(dogAPI)
+    .then(res => res.json())
+    .then(json => this.setState({
+      ...this.state,
+      dogSpirit: json.url
+    }, () => console.log(this.state.dogSpirit)))
   }
 
   inputFeelingz = (event) => {
     this.setState({
+      ...this.state,
       [event.target.name]: event.target.value
     })
   }
@@ -22,7 +36,11 @@ class UserHomePage extends React.Component {
 
     fetch(postURL, {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({
+        user_id: this.state.userID,
+        feelings: this.state.feelings,
+        dog_spirit: this.state.dogSpirit
+      }),
       headers: {
         'content-type': 'application/json'
       }
@@ -33,7 +51,7 @@ class UserHomePage extends React.Component {
   render(){
     return(
       <div>
-        <DogSpiritSelection />
+        <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>
     )
