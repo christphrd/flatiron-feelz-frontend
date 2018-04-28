@@ -14,14 +14,12 @@ class UserHomePage extends React.Component {
   }
 
   selectDogSpirit = (event) => {
-    console.log('officially the userhomepage comp. passed into dogspiritselection ', event.target)
-
     fetch(dogAPI)
     .then(res => res.json())
     .then(json => this.setState({
       ...this.state,
       dogSpirit: json.url
-    }, () => console.log(this.state.dogSpirit)))
+    }))
   }
 
   inputFeelingz = (event) => {
