@@ -23,7 +23,7 @@ class UsersList extends React.Component {
     return(
       <div>
         <h1>People in the Feelings Circle</h1>
-        {this.state.users.map(user => <UserItem key={user.id} user={user} />)}
+        {this.state.users.map(user => <UserItem key={user.id} id={user.id} user={user} goToShow={this.props.goToShow}/>)}
       </div>
     )
   }
