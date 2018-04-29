@@ -44,6 +44,7 @@ class UserHomePage extends React.Component {
       }
     })
     .then(res => res.json())
+    .then(json => console.log(json))
   }
 
   render(){
