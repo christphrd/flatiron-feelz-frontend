@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
+import apiKeys from '../../.env.js';
 
 class ImageCapture extends Component {
   //image state
@@ -52,6 +53,7 @@ class ImageCapture extends Component {
 
     let fd = new FormData()
     fd.append("contentType", "image/jpeg");
+    // console.log(awsAccessKey)
     // fd.append("key", key);
     // fd.append("AWSAccessKeyId", awsAccessKey);
     // fd.append("acl", "public-read");
