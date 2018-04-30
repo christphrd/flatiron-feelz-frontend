@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
-import apiKeys from '../../.env.js';
+import apiKeys from '../apiKeys.js';
 
 class ImageCapture extends Component {
   //image state
@@ -49,10 +49,10 @@ class ImageCapture extends Component {
     // console.log(event.target.parentNode.children[0].src)
     let selfieURI = document.getElementById("selfie").src
     let raw = window.atob(selfieURI.replace(/^data\:image\/\w+\;base64\,/, ''))
-    console.log(raw)
 
     let fd = new FormData()
     fd.append("contentType", "image/jpeg");
+    console.log(apiKeys)
     // console.log(awsAccessKey)
     // fd.append("key", key);
     // fd.append("AWSAccessKeyId", awsAccessKey);
