@@ -43,8 +43,9 @@ class UserHomePage extends React.Component {
         'content-type': 'application/json'
       }
     })
-    .then(res => res.json())
-    .then(json => console.log(json))
+    .then(res => {
+      res.ok ? this.props.successfulFeelzSubmit() : window.alert("Unsuccessful sharing of feelz. Please try submitting again.")
+    })
   }
 
   render(){

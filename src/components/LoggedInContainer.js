@@ -21,14 +21,23 @@ class LoggedInContainer extends React.Component {
       .then(json => this.setState({
         home: false,
         clickedUserData: json
-      }), () => console.log(this.state))
+      }))
   }
 
   goHome = () => {
     this.setState({
       ...this.state,
       home: true
-    }, () => console.log(this.state))
+    })
+  }
+
+  successfulFeelzSubmit = () => {
+    fetch(usersURL + this.props.usersReducer.userID)
+      .then(res => res.json())
+      .then(json => this.setState({
+        home: false,
+        clickedUserData: json
+      }))
   }
 
   render(){
@@ -36,7 +45,7 @@ class LoggedInContainer extends React.Component {
       <div>
         <h1>Hello. {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`} got jwt</h1>
         <NavBar goHome={this.goHome}/>
-        {this.state.home ? <UserHomePage /> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}
+        {this.state.home ? <UserHomePage successfulFeelzSubmit={this.successfulFeelzSubmit}/> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}
         <UsersList goToShow={this.goToShow} />
       </div>
     )
