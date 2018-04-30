@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class UserFeelingsForm extends React.Component {
 
   render(){
-    console.log(this.props)
     return(
       <div>
         <h1>Share Feelings</h1>
