@@ -27,6 +27,11 @@
   to { transform: rotate(360deg); }
 }
 
+img#selfie {
+  width: 400px;
+  height: 400px
+}
+
 img {
   width:100%;
   max-width:600px;
