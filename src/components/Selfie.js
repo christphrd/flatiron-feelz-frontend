@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Selfie = props => {
+
   return (
     <div className="output">
       <img id="selfie" alt="Your selfie"/>
@@ -8,4 +9,5 @@ const Selfie = props => {
     </div>
   )
 }
+
 export default Selfie

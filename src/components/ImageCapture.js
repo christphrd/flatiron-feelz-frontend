@@ -44,7 +44,21 @@ class ImageCapture extends Component {
 
   handleSaveClick = (event) => {
     event.preventDefault()
-    debugger
+    console.log(document.getElementById("selfie"));
+    // console.log(event.target.parentNode.children[0].src)
+    let selfieURI = document.getElementById("selfie").src
+    let raw = window.atob(selfieURI.replace(/^data\:image\/\w+\;base64\,/, ''))
+    console.log(raw)
+
+    let fd = new FormData()
+    fd.append("contentType", "image/jpeg");
+    // fd.append("key", key);
+    // fd.append("AWSAccessKeyId", awsAccessKey);
+    // fd.append("acl", "public-read");
+    // fd.append("policy", policy);
+    // fd.append("signature", signature);
+    // fd.append('filename', "");
+    // fd.append('file', raw);
   }
 
   takePicture = () => {
@@ -58,7 +72,7 @@ class ImageCapture extends Component {
     canvas.height = height;
     context.drawImage(video, 0, 0, width, height);
 
-    const data = canvas.toDataURL('image/png');
+    const data = canvas.toDataURL('image/jpeg');
     selfie.setAttribute('src', data);
   }
 
