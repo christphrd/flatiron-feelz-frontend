@@ -47,49 +47,7 @@ class ImageCapture extends Component {
 //ATTEMPT TO UPLOAD TO S3 BUCKET. Testing a library
   handleSaveClick = (event) => {
     event.preventDefault()
-    console.log(document.getElementById("selfie"));
-    // console.log(event.target.parentNode.children[0].src)
-    // let selfieURI = document.getElementById("selfie").src
-    // let raw = window.atob(selfieURI.replace(/^data\:image\/\w+\;base64\,/, ''))
-    //
-    // let fd = new FormData()
-    // fd.append("contentType", "image/jpeg");
-    // console.log(apiKeys)
-    // // console.log(awsAccessKey)
-    // fd.append("key", apiKeys.awsAccessKey);
-    // fd.append("AWSAccessKeyId", apiKeys.awsAccessKeyID);
-    // fd.append("acl", "public-read");
-    // // fd.append("policy", policy);
-    // // fd.append("signature", signature);
-    // fd.append('filename', "");
-    // fd.append('file', raw);
-    // console.log(fd)
-
-    //TRYING DOM to IMAGE LIBRARY
-    // let selfieURI = document.getElementById("selfie")
-    // let options = {
-    //   quality: 0.95
-    // }
-    //
-    // domtoimage.toJpeg(selfieURI, options).then(function (dataURL){
-    //   console.log(dataURL)
-    //   debugger
-    // })
-
-
-    //TRYING stackoverflow answer
-    // let canvas = document.getElementById("selfie")
-    // let image = new Image()
-    // image.src = document.getElementById("selfie").src
-    //
-    // image.onload = function()
-    // {
-    //    ctx.drawImage(image, 0, 0);
-    //     var foo = Canvas2Image.saveAsPNG(canvas);
-    // };
-    // var img = canvas.toDataURL("image/jpeg");
-
-    //TRY it
+    
     const selfie = document.getElementById('selfie');
     console.log(selfie.src)
   }
