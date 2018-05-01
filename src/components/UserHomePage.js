@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
+// import FileStackUploader from './FileStackUploader';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
@@ -53,6 +54,7 @@ class UserHomePage extends React.Component {
     return(
       <div>
         <ImageCapture />
+        {/* <FileStackUploader /> */}
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>

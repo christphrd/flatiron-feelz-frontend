@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
-import apiKeys from '../apiKeys.js';
+// import apiKeys from '../apiKeys.js';
 
 class ImageCapture extends Component {
   //image state
@@ -47,7 +47,7 @@ class ImageCapture extends Component {
 //ATTEMPT TO UPLOAD TO S3 BUCKET. Testing a library
   handleSaveClick = (event) => {
     event.preventDefault()
-    
+
     const selfie = document.getElementById('selfie');
     console.log(selfie.src)
   }
