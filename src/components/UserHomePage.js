@@ -4,9 +4,13 @@ import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
 // import FileStackUploader from './FileStackUploader';
+import EmotionStats from './EmotionStats';
+import apiKeys from '../apiKeys';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
+const faceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`
+const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
 
 class UserHomePage extends React.Component {
   state = {
@@ -14,6 +18,7 @@ class UserHomePage extends React.Component {
     feelings: null,
     dogSpirit: null,
     selfie: null,
+    stats: null
   }
 
   saveSelfie = (json) => {
@@ -23,6 +28,25 @@ class UserHomePage extends React.Component {
       selfie: json.data.link
     }, () => console.log(this.state))
     window.alert("Ready for your Feelings Share")
+  }
+
+  getFaceStats = () => {
+    console.log("get stats from Microsoft Face API with this func in UserHomePage")
+
+    fetch(emotionFaceAPI, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': apiKeys.microsoftFaceKey2
+      },
+      body: JSON.stringify({"url": this.state.selfie})
+    })
+    .then(res => res.json())
+    .then(json => this.setState({
+      ...this.state,
+      stats: json[0].faceAttributes //Stats is an obj with emotion as a key
+    }, () => console.log(this.state)))
+    //.then(json => console.log(json[0].faceAttributes))
   }
 
   selectDogSpirit = (event) => {
@@ -50,7 +74,8 @@ class UserHomePage extends React.Component {
         user_id: this.state.userID,
         feelings: this.state.feelings,
         dog_spirit: this.state.dogSpirit,
-        selfie: this.state.selfie
+        selfie: this.state.selfie,
+        stats: this.state.stats
       }),
       headers: {
         'content-type': 'application/json'
@@ -66,6 +91,7 @@ class UserHomePage extends React.Component {
       <div>
         <ImageCapture saveSelfie={this.saveSelfie}/>
         {/* <FileStackUploader /> */}
+        <EmotionStats getFaceStats={this.getFaceStats}/>
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>
