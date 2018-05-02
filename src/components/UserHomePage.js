@@ -39,7 +39,7 @@ class UserHomePage extends React.Component {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': apiKeys.microsoftFaceKey2
       },
-      body: JSON.stringify({"url": this.state.selfie})
+      body: JSON.stringify({"url": this.state.selfie}) //JSON.stringify is important
     })
     .then(res => res.json())
     .then(json => this.setState({
