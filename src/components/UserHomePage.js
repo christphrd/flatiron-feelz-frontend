@@ -8,6 +8,7 @@ import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
 
 const postURL = `http://localhost:3000/api/v1/posts`
+const selfieURL = `http://localhost:3000/api/v1/selfies`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 const faceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`
 const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
@@ -18,7 +19,15 @@ class UserHomePage extends React.Component {
     feelings: null,
     dogSpirit: null,
     selfie: null,
-    stats: null
+    stats: false,
+    anger: null,
+    contempt: null,
+    disgust: null,
+    fear: null,
+    happiness: null,
+    neutral: null,
+    sadness: null,
+    surprise: null
   }
 
   saveSelfie = (json) => {
@@ -44,9 +53,23 @@ class UserHomePage extends React.Component {
     .then(res => res.json())
     .then(json => this.setState({
       ...this.state,
-      stats: json[0].faceAttributes //Stats is an obj with emotion as a key
+      //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
+      stats: true,
+      anger: json[0].faceAttributes.emotion.anger,
+      contempt: json[0].faceAttributes.emotion.contempt,
+      disgust: json[0].faceAttributes.emotion.disgust,
+      fear: json[0].faceAttributes.emotion.fear,
+      happiness: json[0].faceAttributes.emotion.happiness,
+      neutral: json[0].faceAttributes.emotion.neutral,
+      sadness: json[0].faceAttributes.emotion.sadness,
+      surprise: json[0].faceAttributes.emotion.surprise
     }, () => console.log(this.state)))
     //.then(json => console.log(json[0].faceAttributes))
+  }
+
+  saveFaceData = () => {
+    console.log('in savedata function from userhomepage. try to post this to rails')
+
   }
 
   selectDogSpirit = (event) => {
@@ -74,8 +97,8 @@ class UserHomePage extends React.Component {
         user_id: this.state.userID,
         feelings: this.state.feelings,
         dog_spirit: this.state.dogSpirit,
-        selfie: this.state.selfie,
-        stats: this.state.stats
+        // selfie: this.state.selfie,
+        // stats: this.state.stats
       }),
       headers: {
         'content-type': 'application/json'
@@ -91,7 +114,7 @@ class UserHomePage extends React.Component {
       <div>
         <ImageCapture saveSelfie={this.saveSelfie}/>
         {/* <FileStackUploader /> */}
-        <EmotionStats/>
+        <EmotionStats getFaceStats={this.getFaceStats} saveFaceData={this.saveFaceData} homeData={this.state}/>
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
       </div>
