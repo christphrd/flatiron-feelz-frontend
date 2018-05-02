@@ -12,7 +12,16 @@ class UserHomePage extends React.Component {
   state = {
     userID: this.props.userID,
     feelings: null,
-    dogSpirit: null
+    dogSpirit: null,
+    selfie: null,
+  }
+
+  saveSelfie = (json) => {
+    console.log("hitting save selfie from user home page parent")
+    this.setState({
+      ...this.state,
+      selfie: json.data.link
+    }, () => console.log(this.state))
   }
 
   selectDogSpirit = (event) => {
@@ -53,7 +62,7 @@ class UserHomePage extends React.Component {
   render(){
     return(
       <div>
-        <ImageCapture />
+        <ImageCapture saveSelfie={this.saveSelfie}/>
         {/* <FileStackUploader /> */}
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>

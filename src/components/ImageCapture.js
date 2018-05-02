@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
-// import apiKeys from '../apiKeys.js';
+import apiKeys from '../apiKeys.js';
 
 class ImageCapture extends Component {
   //image state
@@ -49,7 +49,29 @@ class ImageCapture extends Component {
     event.preventDefault()
 
     const selfie = document.getElementById('selfie');
-    console.log(selfie.src)
+
+    if (!!selfie.alt) {
+      //remove scheme, media type(jpeg), base64extension
+      let dataFromURI = selfie.src.substring(23)
+      // console.log(selfie.src)
+      // console.log(dataFromURI)
+
+      const formData = new FormData()
+      formData.append('image', dataFromURI)
+      formData.append('type', 'base64')
+
+      fetch("https://api.imgur.com/3/image",{
+        method: "POST",
+        headers: {
+          Authorization: 'Client-ID ' + apiKeys.imgurClientID
+        },
+        body: formData
+      })
+      .then(res => res.json())
+      .then(json => this.props.saveSelfie(json))
+    } else {
+      window.alert("Please take a selfie first")
+    }
   }
 
   takePicture = () => {
@@ -57,7 +79,7 @@ class ImageCapture extends Component {
     const context = canvas.getContext('2d');
     const video = document.querySelector('video');
     const selfie = document.getElementById('selfie');
-    const saveButton = document.getElementById('saveButton') //added. now capable of downloading image as jpeg
+    // const saveButton = document.getElementById('saveButton') //added. now capable of downloading image as jpeg
     const { width, height } = this.state.constraints.video;
 
     canvas.width = width;
@@ -65,11 +87,12 @@ class ImageCapture extends Component {
     context.drawImage(video, 0, 0, width, height);
 
     const data = canvas.toDataURL('image/jpeg');
+    selfie.setAttribute('alt', "Your selfie")
     selfie.setAttribute('src', data);
 
     //now capable of downloading image as jpeg
-    saveButton.setAttribute('href', data);
-    saveButton.setAttribute('download', Date.now() + "selfie.jpg");
+    // saveButton.setAttribute('href', data);
+    // saveButton.setAttribute('download', Date.now() + "selfie.jpg");
   }
 
   //sets up the image tag for receiving captured image
