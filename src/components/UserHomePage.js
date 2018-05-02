@@ -108,3 +108,15 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, null)(UserHomePage)
+
+//{userID: 13, feelings: "Test", dogSpirit: "https://random.dog/6129aa24-e224-4f7b-8058-e33cca8bfab0.JPG", selfie: "https://i.imgur.com/z5akVOJ.jpg", stats: {emotion: {
+            //     anger: 0.575,
+            //     contempt: 0,
+            //     disgust: 0.006,
+            //     fear: 0.008,
+            //     happiness: 0.394,
+            //     neutral: 0.013,
+            //     sadness: 0,
+            //     surprise: 0.004
+            // }}
+//stats: {emotion: {anger: 0, contempt: 0, disgust: 0, fear: 0, happiness: 0}}
