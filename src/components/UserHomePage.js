@@ -48,7 +48,8 @@ class UserHomePage extends React.Component {
       body: JSON.stringify({
         user_id: this.state.userID,
         feelings: this.state.feelings,
-        dog_spirit: this.state.dogSpirit
+        dog_spirit: this.state.dogSpirit,
+        selfie: this.state.selfie
       }),
       headers: {
         'content-type': 'application/json'
