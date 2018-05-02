@@ -70,6 +70,27 @@ class UserHomePage extends React.Component {
   saveFaceData = () => {
     console.log('in savedata function from userhomepage. try to post this to rails')
 
+    fetch(selfieURL, {
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: this.state.userID,
+        selfie: this.state.selfie,
+        anger: this.state.anger,
+        contempt: this.state.contempt,
+        disgust: this.state.disgust,
+        fear: this.state.fear,
+        happiness: this.state.happiness,
+        neutral: this.state.neutral,
+        sadness: this.state.sadness,
+        surprise: this.state.surprise
+      }),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      res.ok ? window.alert("Successful sharing of selfie data. Congrats!") : window.alert("Unsuccessful sharing of feelz. Please try submitting again.")
+    })
   }
 
   selectDogSpirit = (event) => {
