@@ -22,6 +22,7 @@ class UserHomePage extends React.Component {
       ...this.state,
       selfie: json.data.link
     }, () => console.log(this.state))
+    window.alert("Successfully Saved Selfie")
   }
 
   selectDogSpirit = (event) => {
