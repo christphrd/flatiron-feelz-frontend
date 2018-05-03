@@ -6,7 +6,7 @@ class SelfieShow extends React.Component {
       <div>
         <h3>Feelings Selfie</h3>
         {this.props.clickedUserData.first_name} has these feelings on a lovable face:<br></br>
-        {this.props.clickedUserData.last_post_selfie ? <img id="shared-selfie" alt="shared" src={this.props.clickedUserData.last_post_selfie}/> : null}
+        {this.props.clickedUserData.photos.length !== 0 ? <img id="shared-selfie" alt="shared" src={this.props.clickedUserData.photos.slice(-1)[0].selfie}/> : null}
       </div>
     )
   }

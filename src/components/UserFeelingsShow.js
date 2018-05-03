@@ -6,7 +6,7 @@ class UserFeelingsShow extends React.Component {
       <div>
         <h3>Shared Feelings</h3>
         {this.props.clickedUserData.first_name} has these feelings:<br></br>
-        {this.props.clickedUserData.last_post_feelings}
+        {this.props.clickedUserData.posts.length !== 0 ? this.props.clickedUserData.posts.slice(-1)[0].feelings : null}
       </div>
     )
   }

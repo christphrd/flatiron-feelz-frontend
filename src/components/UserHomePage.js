@@ -8,7 +8,7 @@ import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
 
 const postURL = `http://localhost:3000/api/v1/posts`
-const selfieURL = `http://localhost:3000/api/v1/selfies`
+const selfieURL = `http://localhost:3000/api/v1/photos`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 const faceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`
 const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
@@ -74,7 +74,7 @@ class UserHomePage extends React.Component {
       method: 'POST',
       body: JSON.stringify({
         user_id: this.state.userID,
-        link: this.state.selfie, //rails api calls it link
+        selfie: this.state.selfie,
         anger: this.state.anger,
         contempt: this.state.contempt,
         disgust: this.state.disgust,

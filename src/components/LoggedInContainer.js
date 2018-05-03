@@ -21,7 +21,7 @@ class LoggedInContainer extends React.Component {
       .then(json => this.setState({
         home: false,
         clickedUserData: json
-      }))
+      }, () => console.log(this.state)))
   }
 
   goHome = () => {
@@ -37,7 +37,7 @@ class LoggedInContainer extends React.Component {
       .then(json => this.setState({
         home: false,
         clickedUserData: json
-      }))
+      }, () => console.log(this.state)))
   }
 
   render(){
