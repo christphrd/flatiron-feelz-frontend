@@ -74,7 +74,7 @@ class UserHomePage extends React.Component {
       method: 'POST',
       body: JSON.stringify({
         user_id: this.state.userID,
-        selfie: this.state.selfie,
+        link: this.state.selfie, //rails api calls it link
         anger: this.state.anger,
         contempt: this.state.contempt,
         disgust: this.state.disgust,
