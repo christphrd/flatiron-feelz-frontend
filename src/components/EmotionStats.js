@@ -1,21 +1,41 @@
 import React from 'react';
+import {Doughnut} from 'react-chartjs-2';
 
 class EmotionStats extends React.Component {
-  // emotion = this.props.stats.emotion
+  // state = {
+  //   feelStats: []
+  // }
 
-  // renderEmotionList = () => {
-  //   return(
-  //
-  //   )
+  // renderDoughnut = () => {
+  //   this.setState({
+  //     feelStats: [this.props.homeData.anger, this.props.homeData.contempt,this.props.homeData.disgust, this.props.homeData.fear, this.props.homeData.happiness, this.props.homeData.neutral, this.props.homeData.sadness, this.props.homeData.surprise]
+  //   })
+  // }
+
+  // data = {
+  //   labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
+  //   datasets: [{
+  //       backgroundColor: [
+  //           '#CC0000',
+  //           '#A0522D',
+  //           '#397D02',
+  //           '#BF5FFF',
+  //           '#FFFF00',
+  //           '#9faeb3',
+  //           '#003EFF',
+  //           '#ffbac7'
+  //       ],
+  //       data: [this.props.homeData.anger, this.props.homeData.contempt,this.props.homeData.disgust, this.props.homeData.fear, this.props.homeData.happiness, this.props.homeData.neutral, this.props.homeData.sadness, this.props.homeData.surprise]
+  //       // data: this.state.feelStats
+  //   }],
   // }
 
   render() {
-    console.log(this.props.homeData)
     return (
       <div>
         In EmotionStats component.
         <button id="analyze-selfie" alt="analyze" onClick={this.props.getFaceStats}>Selfie analyze</button>
-        {this.props.homeData.stats ?
+        {/* {this.props.homeData.stats ?
           <div>
             <p>Anger: {this.props.homeData.anger}</p>
             <p>Contempt: {this.props.homeData.contempt}</p>
@@ -27,7 +47,23 @@ class EmotionStats extends React.Component {
             <p>Surprise: {this.props.homeData.surprise}</p>
           </div>
           : null}
-        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Selfie Data Save</button></p>
+        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Selfie Data Save</button></p> */}
+        {this.props.homeData.stats ? <Doughnut data={{
+          labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
+          datasets: [{
+              backgroundColor: [
+                  '#CC0000',
+                  '#A0522D',
+                  '#397D02',
+                  '#BF5FFF',
+                  '#FFFF00',
+                  '#9faeb3',
+                  '#003EFF',
+                  '#ffbac7'
+              ],
+              data: [this.props.homeData.anger, this.props.homeData.contempt,this.props.homeData.disgust, this.props.homeData.fear, this.props.homeData.happiness, this.props.homeData.neutral, this.props.homeData.sadness, this.props.homeData.surprise]
+          }],
+        }}/> : null}
       </div>
     )
   }
