@@ -136,8 +136,8 @@ class UserHomePage extends React.Component {
         <ImageCapture saveSelfie={this.saveSelfie}/>
         {/* <FileStackUploader /> */}
         <EmotionStats getFaceStats={this.getFaceStats} saveFaceData={this.saveFaceData} homeData={this.state}/>
-        <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
+        <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
       </div>
     )
   }
