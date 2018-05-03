@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signInUser, signUpUser } from '../actions/user';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+const FormItem = Form.Item;
+
 
 class LoginForm extends React.Component {
   state = {
@@ -43,19 +46,19 @@ class LoginForm extends React.Component {
     return(
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.loginSubmit}>
-          <input name="email" type="text" placeholder="Email" onChange={this.handleChange}></input>
-          <input name="password" type="password" placeholder="Password" onChange={this.handleChange}></input>
-          <input type="submit"/>
-        </form>
+        <Form onSubmit={this.loginSubmit} className="login-form">
+          <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} name="email" type="text" placeholder="Email" onChange={this.handleChange}></Input>
+          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="password" type="password" placeholder="Password" onChange={this.handleChange}></Input><br></br>
+          <Button type="primary" htmlType="submit">Login</Button>
+        </Form>
         <h1>Sign Up</h1>
-        <form onSubmit={this.signUpSubmit}>
-          <input name="firstName" type="text" placeholder="First Name (required)" onChange={this.handleChange}></input>
-          <input name="lastName" type="text" placeholder="Last Name (required)" onChange={this.handleChange}></input>
-          <input name="newEmail" type="text" placeholder="Email (unique & required)" onChange={this.handleChange}></input>
-          <input name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></input>
-          <input type="submit"/>
-        </form>
+        <Form onSubmit={this.signUpSubmit} className="sign-up-form">
+          <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="firstName" type="text" placeholder="First Name (required)" onChange={this.handleChange}></Input>
+          <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="lastName" type="text" placeholder="Last Name (required)" onChange={this.handleChange}></Input>
+          <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} name="newEmail" type="text" placeholder="Email (required)" onChange={this.handleChange}></Input>
+          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></Input>
+          <Button type="primary" htmlType="submit">Sign Up</Button>
+        </Form>
       </div>
     )
   }

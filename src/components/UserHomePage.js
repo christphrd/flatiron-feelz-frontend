@@ -51,6 +51,19 @@ class UserHomePage extends React.Component {
       body: JSON.stringify({"url": this.state.selfie}) //JSON.stringify is important
     })
     .then(res => res.json())
+    // .then(json => this.setState({
+    //   ...this.state,
+    //   //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
+    //   stats: true,
+    //   anger: json[0].faceAttributes.emotion.anger,
+    //   contempt: json[0].faceAttributes.emotion.contempt,
+    //   disgust: json[0].faceAttributes.emotion.disgust,
+    //   fear: json[0].faceAttributes.emotion.fear,
+    //   happiness: json[0].faceAttributes.emotion.happiness,
+    //   neutral: json[0].faceAttributes.emotion.neutral,
+    //   sadness: json[0].faceAttributes.emotion.sadness,
+    //   surprise: json[0].faceAttributes.emotion.surprise
+    // }, () => console.log(this.state)))
     .then(json => this.setState({
       ...this.state,
       //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
@@ -64,7 +77,6 @@ class UserHomePage extends React.Component {
       sadness: json[0].faceAttributes.emotion.sadness,
       surprise: json[0].faceAttributes.emotion.surprise
     }, () => console.log(this.state)))
-    //.then(json => console.log(json[0].faceAttributes))
   }
 
   saveFaceData = () => {

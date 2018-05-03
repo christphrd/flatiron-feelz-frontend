@@ -1,30 +1,31 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App-header {
+  background-color: #ADD8E6;
+  height: 150px;
+  padding: 20px;
+  color: white;
 }
 
-.App-header {
-  background-color: #222;
+.NavBar {
+  background-color: #ADD8E6;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  color: white;
+  font-size: xx-large;
 }
 
 .App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  font-size: xx-large;
+  color: white;
 }
 
 img#selfie {
@@ -35,4 +36,16 @@ img#selfie {
 img {
   width:100%;
   max-width:600px;
+}
+
+.login-form {
+  max-width: 300px;
+  align: center;
+  display: inline-block;
+}
+
+.sign-up-form {
+  max-width: 300px;
+  align: center;
+  display: inline-block;
 }

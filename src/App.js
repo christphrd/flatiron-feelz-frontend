@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 import {getCurrentUser} from './actions/user.js';
 import LoginForm from './components/LoginForm';
@@ -33,12 +32,12 @@ class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to Flatiron Feelz</h1>
+            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
+            <p>
+              The Blogging Platform for the Flatiron Grad
+            </p>
           </header>
-          <p className="App-intro">
-            The Blogging Platform for the Flatiron Grad
-          </p>
+
           <LoginForm />
         </div>
       );

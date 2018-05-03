@@ -64,6 +64,7 @@ class EmotionStats extends React.Component {
               data: [this.props.homeData.anger, this.props.homeData.contempt,this.props.homeData.disgust, this.props.homeData.fear, this.props.homeData.happiness, this.props.homeData.neutral, this.props.homeData.sadness, this.props.homeData.surprise]
           }],
         }}/> : null}
+        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Selfie Data Save</button></p>
       </div>
     )
   }

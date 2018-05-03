@@ -1,10 +1,11 @@
 import React from 'react';
+import { Spin } from 'antd';
 
 class Loading extends React.Component {
   render(){
     return(
       <div>
-        I'm loading... Give me a moment
+        <Spin size="large" />
       </div>
     )
   }
