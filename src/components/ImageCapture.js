@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
 import apiKeys from '../apiKeys.js';
+import { Modal, Button } from 'antd';
 
 class ImageCapture extends Component {
   //image state
@@ -70,8 +71,15 @@ class ImageCapture extends Component {
       .then(res => res.json())
       .then(json => this.props.saveSelfie(json))
     } else {
-      window.alert("Please take a selfie first")
+      this.noSelfieError()
     }
+  }
+
+  noSelfieError = () => {
+    Modal.error({
+      title: 'Error',
+      content: 'Please take a selfie first.',
+    });
   }
 
   takePicture = () => {

@@ -5,6 +5,7 @@ import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
+import { Modal, Button } from 'antd';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const selfieURL = `http://localhost:3000/api/v1/photos`
@@ -30,12 +31,18 @@ class UserHomePage extends React.Component {
   }
 
   saveSelfie = (json) => {
-    console.log("hitting save selfie from user home page parent")
     this.setState({
       ...this.state,
       selfie: json.data.link
     }, () => console.log(this.state))
-    window.alert("Ready for your Feelings Share")
+    this.successfulImgurSaved()
+  }
+
+  successfulImgurSaved = () => {
+    Modal.success({
+      title: 'Congrats',
+      content: 'Your selfie is temporarily saved. Good job!',
+    });
   }
 
   getFaceStats = () => {
@@ -92,9 +99,16 @@ class UserHomePage extends React.Component {
           surprise: json[0].faceAttributes.emotion.surprise
         }, () => console.log(this.state))
       } else {
-        window.alert("Try taking a better selfie.")
+        this.selfieAnalysisError()
       }
     })
+  }
+
+  selfieAnalysisError = () => {
+    Modal.error({
+      title: 'Error',
+      content: 'Try taking a better selfie. Your face is expressive and awesome!',
+    });
   }
 
   saveFaceData = () => {
@@ -119,8 +133,22 @@ class UserHomePage extends React.Component {
       }
     })
     .then(res => {
-      res.ok ? window.alert("Successful sharing even if it is nothing. Congrats!") : window.alert("Unsuccessful sharing of feelz. Please try submitting again.")
+      res.ok ? this.successfulSelfieSave() : this.selfieSaveError()
     })
+  }
+
+  successfulSelfieSave = () => {
+    Modal.success({
+      title: 'Success',
+      content: 'Successful sharing of selfie feelz even if it is nothing. Congrats!',
+    });
+  }
+
+  selfieSaveError = () => {
+    Modal.error({
+      title: 'Error',
+      content: 'Unsuccessful sharing of selfie feelz. Please try submitting again.',
+    });
   }
 
   selectDogSpirit = (event) => {
@@ -156,8 +184,15 @@ class UserHomePage extends React.Component {
       }
     })
     .then(res => {
-      res.ok ? this.props.successfulFeelzSubmit() : window.alert("Unsuccessful sharing of feelz. Please try submitting again.")
+      res.ok ? this.props.successfulFeelzSubmit() : this.unsuccessfulFeelzSubmitError()
     })
+  }
+
+  unsuccessfulFeelzSubmitError = () => {
+    Modal.error({
+      title: 'Error',
+      content: 'Unsuccessful sharing of feelz. Please try submitting again.',
+    });
   }
 
   render(){
