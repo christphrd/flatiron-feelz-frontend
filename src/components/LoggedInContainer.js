@@ -50,8 +50,10 @@ class LoggedInContainer extends React.Component {
           <Col span={16}>{this.state.home ? <UserHomePage successfulFeelzSubmit={this.successfulFeelzSubmit}/> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}</Col>
           <Col span={8}><UsersList goToShow={this.goToShow} /></Col>
         </Row> */}
-        {this.state.home ? <UserHomePage successfulFeelzSubmit={this.successfulFeelzSubmit}/> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}
-        <UsersList goToShow={this.goToShow} />
+        <div className="container">
+          {this.state.home ? <UserHomePage successfulFeelzSubmit={this.successfulFeelzSubmit}/> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}
+          <UsersList goToShow={this.goToShow} />
+        </div>
       </div>
     )
   }

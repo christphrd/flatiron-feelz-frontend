@@ -10,8 +10,8 @@ class UserShowPage extends React.Component {
       <div>
         <SelfieShow clickedUserData={this.props.clickedUserData} />
         <EmotionStatsShow clickedUserData={this.props.clickedUserData} />
-        <UserFeelingsShow clickedUserData={this.props.clickedUserData}/>
         <DogSpiritShow clickedUserData={this.props.clickedUserData}/>
+        <UserFeelingsShow clickedUserData={this.props.clickedUserData}/>
       </div>
     )
   }

@@ -144,11 +144,15 @@ class UserHomePage extends React.Component {
   render(){
     return(
       <div>
-        <ImageCapture saveSelfie={this.saveSelfie}/>
-        {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}
-        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
-        <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
-        <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
+        <div className="first-column">
+          <ImageCapture saveSelfie={this.saveSelfie}/>
+          {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}
+          <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
+        </div>
+        <div className="second-column">
+          <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
+          <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
+        </div>
       </div>
     )
   }
