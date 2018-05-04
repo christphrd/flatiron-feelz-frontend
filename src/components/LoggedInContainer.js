@@ -47,7 +47,7 @@ class LoggedInContainer extends React.Component {
         <NavBar goHome={this.goHome}/>
         <div className="center-text">
           <h1>Hello, {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`}. How are things?</h1>
-          <h2>Feelings can be expressed in many ways.</h2>
+          <h2>Feelings can be expressed in many ways. So let us meditate on them.</h2>
           <h2>"We accept the love we think we deserve." -Stephen Chbosky</h2>
         </div>
         {/* <Row>
