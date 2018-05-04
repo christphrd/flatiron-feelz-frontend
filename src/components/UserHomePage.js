@@ -204,8 +204,8 @@ class UserHomePage extends React.Component {
       // </div>
       [<div className="first-column">
         <ImageCapture saveSelfie={this.saveSelfie}/>
-        {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}
-        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
+        {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}<br></br>
+        <button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button>
       </div>,
       <div className="second-column">
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>

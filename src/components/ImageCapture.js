@@ -87,6 +87,7 @@ class ImageCapture extends Component {
     const context = canvas.getContext('2d');
     const video = document.querySelector('video');
     const selfie = document.getElementById('selfie');
+    const saveSelfieButton = document.getElementById('save-selfie-button')
     // const saveButton = document.getElementById('saveButton') //added. now capable of downloading image as jpeg
     const { width, height } = this.state.constraints.video;
 
@@ -97,6 +98,8 @@ class ImageCapture extends Component {
     const data = canvas.toDataURL('image/jpeg');
     selfie.setAttribute('alt', "Your selfie")
     selfie.setAttribute('src', data);
+    selfie.removeAttribute('hidden')
+    saveSelfieButton.removeAttribute('hidden')
 
     //now capable of downloading image as jpeg
     // saveButton.setAttribute('href', data);

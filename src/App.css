@@ -63,20 +63,31 @@ img {
 
 .container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .first-column {
   order: 1;
+  flex-grow: 2;
 }
 
 .second-column {
   order: 2;
+  flex-grow: 2;
 }
 
 .third-column {
   order: 3;
+  flex-grow: 1;
 }
 
 .center-text {
   text-align: center;
+}
+
+body {
+   background-image: url("./mist-trees.jpg");
+   background-color: #cccccc;
 }
