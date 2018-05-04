@@ -9,7 +9,7 @@ class UserFeelingsForm extends React.Component {
         <h1>Share Feelings</h1>
         <form onSubmit={this.props.submitFeelings}>
           <textarea rows="4" cols="50" name="feelings" placeholder="Feelz (required)" onChange={this.props.inputFeelingz}></textarea><br></br>
-          <input type="submit" value="Share your Feelings"/>
+          <input type="submit" value="Share all your Feelings"/>
         </form>
       </div>
     )

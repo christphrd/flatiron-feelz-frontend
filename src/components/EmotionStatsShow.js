@@ -2,11 +2,14 @@ import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
 
 class EmotionStatsShow extends React.Component {
-  lastFeelStats = this.props.clickedUserData.photos.slice(-1)[0]
-  data = {
-    labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
-    datasets: [{
-        backgroundColor: [
+  renderDoughnut = () => {
+    let lastFeelStats = this.props.clickedUserData.photos.slice(-1)[0]
+    if (lastFeelStats) {
+
+      let data = {
+        labels: ["Anger", "Contempt", "Disgust", "Fear", "Happiness", "Neutral", "Sadness", "Surprise"],
+        datasets: [{
+          backgroundColor: [
             '#CC0000',
             '#A0522D',
             '#397D02',
@@ -15,9 +18,12 @@ class EmotionStatsShow extends React.Component {
             '#9faeb3',
             '#003EFF',
             '#ffbac7'
-        ],
-        data: [this.lastFeelStats.anger, this.lastFeelStats.contempt,this.lastFeelStats.disgust, this.lastFeelStats.fear, this.lastFeelStats.happiness, this.lastFeelStats.neutral, this.lastFeelStats.sadness, this.lastFeelStats.surprise]
-    }],
+          ],
+          data: [lastFeelStats.anger, lastFeelStats.contempt,lastFeelStats.disgust, lastFeelStats.fear, lastFeelStats.happiness, lastFeelStats.neutral, lastFeelStats.sadness, lastFeelStats.surprise]
+        }],
+      }
+      return <Doughnut data={data}/>
+    }
   }
 
   render() {
@@ -33,7 +39,7 @@ class EmotionStatsShow extends React.Component {
             <p>Sadness: {this.props.clickedUserData.photos.slice(-1)[0].sadness}</p>
             <p>Surprise: {this.props.clickedUserData.photos.slice(-1)[0].surprise}</p>
           </div> : null } */}
-          {this.props.clickedUserData.photos.length !== 0 && this.props.clickedUserData.photos.slice(-1)[0].anger ? <Doughnut data={this.data}/> : null}
+          {this.props.clickedUserData.photos.length !== 0 && this.props.clickedUserData.photos.slice(-1)[0].anger ? this.renderDoughnut(): null}
       </div>
     )
   }

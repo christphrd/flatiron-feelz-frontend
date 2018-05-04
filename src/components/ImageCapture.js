@@ -44,7 +44,7 @@ class ImageCapture extends Component {
   }
 
 
-//ATTEMPT TO UPLOAD TO S3 BUCKET. Testing a library
+//Upload to Imgur
   handleSaveClick = (event) => {
     event.preventDefault()
 
