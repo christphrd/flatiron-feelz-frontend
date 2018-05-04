@@ -44,8 +44,10 @@ class LoggedInContainer extends React.Component {
     return(
       <div>
         <NavBar goHome={this.goHome}/>
-        <h1>Hello, {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`}. How are things?</h1>
-        <h2>"We accept the love we think we deserve." -Stephen Chbosky</h2>
+        <div className="center-text">
+          <h1>Hello, {`${this.props.usersReducer.firstName} ${this.props.usersReducer.lastName}`}. How are things?</h1>
+          <h2>"We accept the love we think we deserve." -Stephen Chbosky</h2>
+        </div>
         {/* <Row>
           <Col span={16}>{this.state.home ? <UserHomePage successfulFeelzSubmit={this.successfulFeelzSubmit}/> : <UserShowPage clickedUserData={this.state.clickedUserData}/>}</Col>
           <Col span={8}><UsersList goToShow={this.goToShow} /></Col>
