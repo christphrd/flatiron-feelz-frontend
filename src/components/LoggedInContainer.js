@@ -18,10 +18,11 @@ class LoggedInContainer extends React.Component {
     //Take the id and fetch the user info. then change home state to false so renders userShowPage
     fetch(usersURL + event.target.id)
       .then(res => res.json())
+      // .then(json => console.log(json))
       .then(json => this.setState({
         home: false,
         clickedUserData: json
-      }, () => console.log(this.state)))
+      }))
   }
 
   goHome = () => {

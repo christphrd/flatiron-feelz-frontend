@@ -21,7 +21,7 @@ class UsersList extends React.Component {
   render(){
     return(
       <div className="third-column">
-        <h1>People in the Feelings Circle</h1>
+        <h1>The Feelings Circle</h1>
         {this.state.users.map(user => <UserItem key={user.id} id={user.id} user={user} goToShow={this.props.goToShow}/>)}
       </div>
     )

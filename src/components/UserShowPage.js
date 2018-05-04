@@ -9,7 +9,8 @@ class UserShowPage extends React.Component {
     return(
       [<div className="first-column">
         <SelfieShow clickedUserData={this.props.clickedUserData} />
-        <EmotionStatsShow clickedUserData={this.props.clickedUserData} />
+        {/* <EmotionStatsShow clickedUserData={this.props.clickedUserData} /> */}
+        { !this.props.clickedUserData.photos.anger ? <EmotionStatsShow clickedUserData={this.props.clickedUserData} /> : null}
       </div>,
       <div className="second-column">
         <DogSpiritShow clickedUserData={this.props.clickedUserData}/>

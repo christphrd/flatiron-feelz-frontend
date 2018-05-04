@@ -23,7 +23,6 @@ class EmotionStatsShow extends React.Component {
   render() {
     return (
       <div>
-        In EmotionStatsShow component.
           {/* { this.props.clickedUserData.photos.length !== 0 && this.props.clickedUserData.photos.slice(-1)[0].anger ? <div>
             <p>Anger: {this.props.clickedUserData.photos.slice(-1)[0].anger}</p>
             <p>Contempt: {this.props.clickedUserData.photos.slice(-1)[0].contempt}</p>
