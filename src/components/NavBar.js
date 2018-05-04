@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOutUser } from '../actions/user';
+import { Button } from 'antd';
 
 class NavBar extends React.Component {
   render(){
     return(
       <div className="NavBar">
-        Hi I'm the NavBar component. I only have two purposes in my existence: (1)take you home and (2)log you out.<br></br>
-        <button onClick={this.props.goHome}>Home</button>
-        <button onClick={this.props.logOutUser}>Log Out</button>
+        <Button onClick={this.props.goHome}>Home</Button>
+        <Button onClick={this.props.logOutUser}>Log Out</Button>
       </div>
     )
   }

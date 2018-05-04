@@ -33,8 +33,7 @@ class EmotionStats extends React.Component {
   render() {
     return (
       <div>
-        In EmotionStats component.
-        <button id="analyze-selfie" alt="analyze" onClick={this.props.getFaceStats}>Selfie analyze</button>
+        <button id="analyze-selfie" alt="analyze" onClick={this.props.getFaceStats}>Analyze Selfie with AI</button>
         {/* {this.props.homeData.stats ?
           <div>
             <p>Anger: {this.props.homeData.anger}</p>
@@ -64,7 +63,7 @@ class EmotionStats extends React.Component {
               data: [this.props.homeData.anger, this.props.homeData.contempt,this.props.homeData.disgust, this.props.homeData.fear, this.props.homeData.happiness, this.props.homeData.neutral, this.props.homeData.sadness, this.props.homeData.surprise]
           }],
         }}/> : null}
-        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Selfie Data Save</button></p>
+        {/* <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Share Selfie Stuff</button></p> */}
       </div>
     )
   }

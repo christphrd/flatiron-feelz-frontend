@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
-// import FileStackUploader from './FileStackUploader';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
 
@@ -146,8 +145,8 @@ class UserHomePage extends React.Component {
     return(
       <div>
         <ImageCapture saveSelfie={this.saveSelfie}/>
-        {/* <FileStackUploader /> */}
-        <EmotionStats getFaceStats={this.getFaceStats} saveFaceData={this.saveFaceData} homeData={this.state}/>
+        {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}
+        <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
         <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
         <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
       </div>

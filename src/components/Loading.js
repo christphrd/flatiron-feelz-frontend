@@ -5,7 +5,8 @@ class Loading extends React.Component {
   render(){
     return(
       <div>
-        <Spin size="large" />
+        <Spin className="center" size="large" />
+        <p><h1>Loading...</h1></p>
       </div>
     )
   }

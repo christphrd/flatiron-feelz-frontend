@@ -13,7 +13,7 @@
 
 .NavBar {
   background-color: #ADD8E6;
-  height: 150px;
+  height: 75px;
   padding: 20px;
   color: white;
 }
@@ -48,4 +48,14 @@ img {
   max-width: 300px;
   align: center;
   display: inline-block;
+}
+
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
 }

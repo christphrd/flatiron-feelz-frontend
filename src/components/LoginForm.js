@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signInUser, signUpUser } from '../actions/user';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-const FormItem = Form.Item;
-
+import { Form, Icon, Input, Button } from 'antd';
 
 class LoginForm extends React.Component {
   state = {

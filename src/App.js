@@ -19,12 +19,24 @@ class App extends Component {
     if (this.props.usersReducer.loading) {
       return (
         <div>
+          <header className="App-header">
+            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
+            <p>
+              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
+            </p>
+          </header>
           <Loading />
         </div>
       )
     } else if (this.props.usersReducer.loggedIn){
       return(
         <div>
+          <header className="App-header">
+            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
+            <p>
+              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
+            </p>
+          </header>
           <LoggedInContainer />
         </div>
       )
@@ -34,7 +46,7 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
             <p>
-              The Blogging Platform for the Flatiron Grad
+              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
             </p>
           </header>
 

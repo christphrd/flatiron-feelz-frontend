@@ -3,8 +3,8 @@ import React from 'react';
 const Camera = props => {
   return(
     <div className="camera">
-      <video id="video"></video>
-      <button id="startButton" onClick={ props.handleStartClick }>Take photo</button>
+      <video id="video"></video><br></br>
+      <button id="startButton" onClick={ props.handleStartClick }>Take Selfie</button>
     </div>
   )
 }
