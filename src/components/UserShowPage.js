@@ -7,12 +7,14 @@ import EmotionStatsShow from './EmotionStatsShow';
 class UserShowPage extends React.Component {
   render() {
     return(
-      <div>
+      [<div className="first-column">
         <SelfieShow clickedUserData={this.props.clickedUserData} />
         <EmotionStatsShow clickedUserData={this.props.clickedUserData} />
+      </div>,
+      <div className="second-column">
         <DogSpiritShow clickedUserData={this.props.clickedUserData}/>
         <UserFeelingsShow clickedUserData={this.props.clickedUserData}/>
-      </div>
+      </div>]
     )
   }
 }
