@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
 import apiKeys from '../apiKeys.js';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 class ImageCapture extends Component {
   //image state

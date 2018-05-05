@@ -5,8 +5,7 @@ import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
-import { Modal, Button } from 'antd';
-import { Card } from 'antd';
+import { Modal, Card } from 'antd';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const selfieURL = `http://localhost:3000/api/v1/photos`

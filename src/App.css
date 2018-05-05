@@ -66,7 +66,7 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 50px;
+  padding: 10px;
 }
 
 .first-column {
