@@ -21,8 +21,8 @@ class UsersList extends React.Component {
 
   render(){
     return(
-      <div className="third-column" extra={<a href="#">More</a>} style={{ width: 300 }}>
-        <Card title="The Feelings Circle" bordered={false} style={{ width: 200 }}>
+      <div className="third-column">
+        <Card title="Check the Feelings Circle" bordered={false} style={{ width: 300 }}>
           {this.state.users.map(user => <UserItem key={user.id} id={user.id} user={user} goToShow={this.props.goToShow}/>)}
         </Card>
       </div>

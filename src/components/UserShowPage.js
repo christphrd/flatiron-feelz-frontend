@@ -3,17 +3,22 @@ import UserFeelingsShow from './UserFeelingsShow';
 import DogSpiritShow from './DogSpiritShow';
 import SelfieShow from './SelfieShow';
 import EmotionStatsShow from './EmotionStatsShow';
+import { Card } from 'antd';
 
 class UserShowPage extends React.Component {
   render() {
     return(
       [<div className="first-column">
-        <SelfieShow clickedUserData={this.props.clickedUserData} />
-        <EmotionStatsShow clickedUserData={this.props.clickedUserData} />
+        <Card title={"Latest Feelings Selfie of " + this.props.clickedUserData.first_name + " " + this.props.clickedUserData.last_name} style={{ width: 500 }}>
+          <p><SelfieShow clickedUserData={this.props.clickedUserData} /></p>
+          <p><EmotionStatsShow clickedUserData={this.props.clickedUserData} /></p>
+        </Card>
       </div>,
       <div className="second-column">
-        <DogSpiritShow clickedUserData={this.props.clickedUserData}/>
-        <UserFeelingsShow clickedUserData={this.props.clickedUserData}/>
+        <Card title={"The Feelz of " + this.props.clickedUserData.first_name + " " + this.props.clickedUserData.last_name} style={{ width: 500 }}>
+          <p><DogSpiritShow clickedUserData={this.props.clickedUserData}/></p>
+          <p><UserFeelingsShow clickedUserData={this.props.clickedUserData}/></p>
+        </Card>
       </div>]
     )
   }

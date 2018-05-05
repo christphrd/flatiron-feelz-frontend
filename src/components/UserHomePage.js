@@ -6,6 +6,7 @@ import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
 import { Modal, Button } from 'antd';
+import { Card } from 'antd';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const selfieURL = `http://localhost:3000/api/v1/photos`
@@ -203,13 +204,17 @@ class UserHomePage extends React.Component {
       //   <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
       // </div>
       [<div className="first-column">
-        <ImageCapture saveSelfie={this.saveSelfie}/>
-        {this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}<br></br>
-        <button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button>
+        <Card title="Selfie Station (optional)" style={{ width: 500 }}>
+          <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
+          <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br>
+          <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
+        </Card>
       </div>,
       <div className="second-column">
-        <DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/>
-        <UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/>
+        <Card title="Feelz" style={{ width: 500 }}>
+          <p><DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/></p>
+          <p><UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/></p>
+        </Card>
       </div>]
     )
   }
