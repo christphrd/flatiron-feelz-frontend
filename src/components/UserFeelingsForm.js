@@ -8,15 +8,13 @@ class UserFeelingsForm extends React.Component {
       <div>
         <h1>Share Feelings</h1>
         <form onSubmit={this.props.submitFeelings}>
-          <textarea rows="4" cols="50" name="feelings" placeholder="Feelz (required)" onChange={this.props.inputFeelingz}></textarea><br></br>
-          <input type="submit" value="Share all your Feelings"/>
+          <textarea rows="4" cols="50" name="feelings" placeholder="Feelz (required). You can share a =)" onChange={this.props.inputFeelingz}></textarea><br></br>
+          <input type="submit" value="Share all your Feelings & Go See Your Page"/>
         </form>
       </div>
     )
   }
 }
-
-// export default UserFeelingsForm
 
 const mapStateToProps = state => {
   return {

@@ -203,7 +203,7 @@ class UserHomePage extends React.Component {
       //   <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
       // </div>
       [<div className="first-column">
-        <Card title="Selfie Station (optional)" style={{ width: 500 }}>
+        <Card title="Selfie Station" style={{ width: 500 }}>
           <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
           <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br>
           <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
@@ -211,6 +211,11 @@ class UserHomePage extends React.Component {
       </div>,
       <div className="second-column">
         <Card title="Feelz" style={{ width: 500 }}>
+          <ul>
+            <li>Cycle through spirit dogs.</li>
+            <li>Write your feelz. (required)</li>
+            <li>Share and go to your page.</li>
+          </ul>
           <p><DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/></p>
           <p><UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/></p>
         </Card>

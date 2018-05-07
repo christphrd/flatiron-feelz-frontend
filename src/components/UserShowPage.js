@@ -15,7 +15,7 @@ class UserShowPage extends React.Component {
         </Card>
       </div>,
       <div className="second-column">
-        <Card title={"The Feelz of " + this.props.clickedUserData.first_name + " " + this.props.clickedUserData.last_name} style={{ width: 500 }}>
+        <Card title={"The Latest Feelz of " + this.props.clickedUserData.first_name + " " + this.props.clickedUserData.last_name} style={{ width: 500 }}>
           <p><DogSpiritShow clickedUserData={this.props.clickedUserData}/></p>
           <p><UserFeelingsShow clickedUserData={this.props.clickedUserData}/></p>
         </Card>

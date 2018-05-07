@@ -86,6 +86,7 @@ class ImageCapture extends Component {
     const canvas = document.querySelector('canvas');
     const context = canvas.getContext('2d');
     const video = document.querySelector('video');
+    const instruction = document.getElementById('instruction')
     const selfie = document.getElementById('selfie');
     const saveSelfieButton = document.getElementById('save-selfie-button')
     // const saveButton = document.getElementById('saveButton') //added. now capable of downloading image as jpeg
@@ -122,7 +123,7 @@ class ImageCapture extends Component {
   render() {
     return (
       <div className="image-capture">
-        <Camera handleStartClick={ this.handleStartClick }/>
+        <Camera handleStartClick={ this.handleStartClick }/><br></br>
         <canvas id="canvas" hidden></canvas>
         <Selfie handleSaveClick={this.handleSaveClick}/>
       </div>
