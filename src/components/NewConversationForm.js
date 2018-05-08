@@ -24,14 +24,15 @@ class NewConversationForm extends React.Component {
     return (
       <div className="newConversationForm">
         <form onSubmit={this.handleSubmit}>
-          <label>New Conversation:</label>
+          <label>New Mod</label>
           <br />
           <input
             type="text"
+            placeholder="Name a Module"
             value={this.state.title}
             onChange={this.handleChange}
           />
-          <input type="submit" />
+          <input type="submit" /><p></p>
         </form>
       </div>
     );

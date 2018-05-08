@@ -7,7 +7,7 @@ class UserItem extends React.Component {
       // <div className="go-to-user" id={this.props.id} onClick={this.props.goToShow}>
       //   {this.props.user.first_name} {this.props.user.last_name}
       // </div>
-      <Link to={`/users/${this.props.id}`} className="go-to-user" key={this.props.id} id={this.props.id} onClick={this.props.goToShow}>
+      <Link to={`/users/${this.props.id}`} className="go-to" key={this.props.id} id={this.props.id} onClick={this.props.goToShow}>
         {this.props.user.first_name} {this.props.user.last_name}<br></br>
       </Link>
     )

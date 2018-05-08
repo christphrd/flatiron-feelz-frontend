@@ -216,13 +216,10 @@ class UserHomePage extends React.Component {
         </Card>
       </div>,
       <div className="second-column">
-        <Card title="Feelz" style={{ width: 500 }}>
-          <ul>
-            <li>Cycle through spirit dogs.</li>
-            <li>Write your feelz. (required)</li>
-            <li>Share and go to your page.</li>
-          </ul>
+        <Card title="Dog Feelz" style={{ width: 500 }}>
           <p><DogSpiritSelection selectDogSpirit={this.selectDogSpirit} dogSpirit={this.state.dogSpirit}/></p>
+        </Card><br></br>
+        <Card title="Feelz" style={{ width: 500 }}>
           <p><UserFeelingsForm inputFeelingz={this.inputFeelingz} submitFeelings={this.submitFeelings}/></p>
         </Card>
       </div>]

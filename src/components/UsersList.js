@@ -23,12 +23,12 @@ class UsersList extends React.Component {
   render(){
     return(
       <div className="third-column">
-        <Card title="Check the Feelings Circle" bordered={false} style={{ width: 300 }}>
-          {this.state.users.map(user => <UserItem key={user.id} id={user.id} user={user} goToShow={this.props.goToShow}/>)}
-        </Card><br></br>
         <Card title="Anonymous Feelz" bordered={false} style={{ width: 300 }}>
           <ConversationsList/>
-        </Card>
+        </Card><br></br>
+        <Card title="Check the Feelings Circle" bordered={false} style={{ width: 300 }}>
+          <div id="user-list">{this.state.users.map(user => <UserItem key={user.id} id={user.id} user={user} goToShow={this.props.goToShow}/>)}</div>
+        </Card><br></br>
       </div>
       // {/* <div className="third-column">
       //   <h1>The Feelings Circle</h1>

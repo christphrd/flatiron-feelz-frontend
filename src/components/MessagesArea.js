@@ -1,14 +1,16 @@
 import React from 'react';
 import NewMessageForm from './NewMessageForm';
+import { Icon, Divider } from 'antd'
 
 const MessagesArea = ({
   conversation: { id, title, messages },
 }) => {
   return (
     <div className="messagesArea">
+      <Divider dashed />
       <h2>{title}</h2>
-      <ul>{orderedMessages(messages)}</ul>
-      <NewMessageForm conversation_id={id} />
+      <NewMessageForm conversation_id={id} /><p></p>
+      <div id="orderedMessages">{orderedMessages(messages)}</div>
     </div>
   );
 };
@@ -19,9 +21,9 @@ export default MessagesArea;
 
 const orderedMessages = messages => {
   const sortedMessages = messages.sort(
-    (a, b) => new Date(a.created_at) - new Date(b.created_at)
+    (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
   return sortedMessages.map(message => {
-    return <li key={message.id}>{message.text}</li>;
+    return <div key={message.id}><Icon type="message" /> {message.text}</div>;
   });
 };

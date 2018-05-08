@@ -86,16 +86,38 @@ img {
 
 .center-text {
   text-align: center;
+  padding: 40px
 }
 
-.go-to-user:hover {
+.dog-image {
+  border-radius: 1%;
+}
+
+.go-to:hover {
   color: blue ;
+}
+
+.go-to {
+  color: #1890ff
+}
+
+#orderedMessages {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+
+#user-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 300px;
 }
 
 #video {
   transform: rotateY(180deg);
   -webkit-transform:rotateY(180deg); /* Safari and Chrome */
   -moz-transform:rotateY(180deg); /* Firefox */
+  border-radius: 1%;
 }
 
 #selfie {
@@ -105,6 +127,7 @@ img {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
+  border-radius: 1%;
 }
 
 #shared-selfie {
@@ -114,9 +137,25 @@ img {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
+  border-radius: 1%;
+}
+
+#welcome-form {
+  padding-top:50px;
 }
 
 body {
-   background-image: url("./mist-trees.jpg");
-   background-color: #cccccc;
+  height: 100%;
+  background-image: url("./mist-trees.jpg");
+  background-color: #424a48;
+  /* Resize to best fit in a whole number of times in x-direction */
+  background-size: round auto; /* Height: auto is to keep aspect ratio */
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

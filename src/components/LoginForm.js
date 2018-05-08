@@ -45,20 +45,20 @@ class LoginForm extends React.Component {
   render(){
     console.log(this.props)
     return(
-      <div>
+      <div id="welcome-form">
         <h1>Login</h1>
         <Form onSubmit={this.loginSubmit} className="login-form">
           <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} name="email" type="text" placeholder="Email" onChange={this.handleChange}></Input>
-          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="password" type="password" placeholder="Password" onChange={this.handleChange}></Input><br></br>
-          <Button type="primary" htmlType="submit">Login</Button>
-        </Form>
+          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="password" type="password" placeholder="Password" onChange={this.handleChange}></Input><p></p>
+          <Button ghost htmlType="submit">Login</Button>
+        </Form><p></p>
         <h1>Sign Up</h1>
         <Form onSubmit={this.signUpSubmit} className="sign-up-form">
           <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="firstName" type="text" placeholder="First Name (required)" onChange={this.handleChange}></Input>
           <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="lastName" type="text" placeholder="Last Name (required)" onChange={this.handleChange}></Input>
           <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} name="newEmail" type="text" placeholder="Email (required)" onChange={this.handleChange}></Input>
-          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></Input>
-          <Button type="primary" htmlType="submit">Sign Up</Button>
+          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="newPassword" type="password" placeholder="Password" onChange={this.handleChange}></Input><p></p>
+          <Button ghost htmlType="submit">Sign Up</Button>
         </Form>
       </div>
     )

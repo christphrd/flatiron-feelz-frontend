@@ -58,9 +58,9 @@ class ConversationsList extends React.Component {
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
-        <h2>Anonymous</h2>
-        <ul>{mapConversations(conversations, this.handleClick)}</ul>
+        <h2>Mod Chatrooms</h2>
         <NewConversationForm />
+        <ul>{mapConversations(conversations, this.handleClick)}</ul>
         {activeConversation ? (
           <MessagesArea
             conversation={findActiveConversation(
@@ -87,7 +87,7 @@ const findActiveConversation = (conversations, activeConversation) => {
 const mapConversations = (conversations, handleClick) => {
   return conversations.map(conversation => {
     return (
-      <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
+      <li className="go-to" key={conversation.id} onClick={() => handleClick(conversation.id)}>
         {conversation.title}
       </li>
     );

@@ -122,6 +122,12 @@ class ImageCapture extends Component {
   render() {
     return (
       <div className="image-capture">
+        <ul>
+          <li>Take selfie.</li>
+          <li>Save the selfie.</li>
+          <li>Analyze it.</li>
+          <li>Share it. (free feel to skip to this after taking your selfie)</li>
+        </ul><p></p>
         <Camera handleStartClick={ this.handleStartClick }/><br></br>
         <canvas id="canvas" hidden></canvas>
         <Selfie handleSaveClick={this.handleSaveClick}/>
