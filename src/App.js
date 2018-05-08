@@ -5,6 +5,7 @@ import {getCurrentUser} from './actions/user.js';
 import LoginForm from './components/LoginForm';
 import LoggedInContainer from './components/LoggedInContainer';
 import Loading from './components/Loading';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
 
@@ -37,7 +38,12 @@ class App extends Component {
               The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
             </p>
           </header>
-          <LoggedInContainer />
+          {/* <LoggedInContainer /> */}
+          <Switch>
+            <Route exact path="/home" component={LoggedInContainer}/>
+            <Route exact path="/users/:id" component={LoggedInContainer}/>
+            <Route path="/" component={LoggedInContainer}/>
+          </Switch>
         </div>
       )
     } else {
@@ -50,7 +56,11 @@ class App extends Component {
             </p>
           </header>
 
-          <LoginForm />
+          {/* <LoginForm /> */}
+          <Switch>
+            <Route exact path="/welcome" component={LoginForm}/>
+            <Route path="/" component={LoginForm}/>
+          </Switch>
         </div>
       );
     }

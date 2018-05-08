@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import {getCurrentUser} from '../actions/user.js';
 import UsersList from './UsersList';
 import UserHomePage from './UserHomePage';
@@ -12,6 +13,19 @@ class LoggedInContainer extends React.Component {
   state = {
     home: true,
     clickedUserData: null
+  }
+
+  componentDidMount() {
+    if (this.props.match.params.id) {
+
+      fetch(usersURL + this.props.match.params.id)
+      .then(res => res.json())
+      .then(json => this.setState({
+        home: false,
+        clickedUserData: json
+      }))
+      this.props.history.push(`/users/${this.props.match.params.id}`)
+    }
   }
 
   goToShow = (event) => {

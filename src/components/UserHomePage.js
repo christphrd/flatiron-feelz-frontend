@@ -1,4 +1,5 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
@@ -6,6 +7,7 @@ import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
 import { Modal, Card } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 const postURL = `http://localhost:3000/api/v1/posts`
 const selfieURL = `http://localhost:3000/api/v1/photos`
@@ -14,6 +16,10 @@ const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
 
 class UserHomePage extends React.Component {
+  componentDidMount() {
+    this.props.history.push("/home")
+  }
+
   state = {
     userID: this.props.userID,
     feelings: null,
@@ -140,7 +146,7 @@ class UserHomePage extends React.Component {
   successfulSelfieSave = () => {
     Modal.success({
       title: 'Success',
-      content: 'Successful sharing of selfie feelz even if it is nothing. Congrats!',
+      content: 'Successful sharing of selfie feelz. Congrats!',
     });
   }
 
@@ -233,7 +239,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(UserHomePage)
+//For changing URI by using history.push function from withRouter
+export default compose(withRouter,
+  connect(mapStateToProps, null)
+)(UserHomePage)
+
+// export default connect(mapStateToProps, null)(UserHomePage)
 
 //{userID: 13, feelings: "Test", dogSpirit: "https://random.dog/6129aa24-e224-4f7b-8058-e33cca8bfab0.JPG", selfie: "https://i.imgur.com/z5akVOJ.jpg", stats: {emotion: {
             //     anger: 0.575,

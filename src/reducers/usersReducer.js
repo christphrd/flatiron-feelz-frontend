@@ -10,6 +10,7 @@ export default function usersReducer(
       if (action.payload.jwt){
         localStorage.setItem("jwt", action.payload.jwt);
       }
+
       return {
         ...state,
         userID: action.payload.id,

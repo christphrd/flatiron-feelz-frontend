@@ -1,7 +1,9 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { signInUser, signUpUser } from '../actions/user';
 import { Form, Icon, Input, Button } from 'antd';
+import { withRouter } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   state = {
@@ -41,6 +43,7 @@ class LoginForm extends React.Component {
   }
 
   render(){
+    console.log(this.props)
     return(
       <div>
         <h1>Login</h1>
@@ -62,15 +65,20 @@ class LoginForm extends React.Component {
   }
 }
 
-// export default LoginForm
-
 const mapStateToProps = state => {
   return {
     ...state.usersReducer
   }
 }
 
-export default connect(mapStateToProps, {
+
+export default compose(withRouter,
+  connect(mapStateToProps, {
   signInUser,
   signUpUser
-})(LoginForm)
+}))(LoginForm)
+
+// export default connect(mapStateToProps, {
+//   signInUser,
+//   signUpUser
+// })(LoginForm)
