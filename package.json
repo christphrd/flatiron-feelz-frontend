@@ -8,6 +8,7 @@
     "dom-to-image": "^2.6.0",
     "filestack-js": "^0.11.4",
     "react": "^16.3.2",
+    "react-actioncable-provider": "^1.0.3",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.3.2",
     "react-filestack": "^0.9.7",
