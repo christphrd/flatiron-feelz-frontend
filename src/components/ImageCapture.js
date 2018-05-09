@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
-// import apiKeys from '../apiKeys.js';
+import apiKeys from '../apiKeys.js';
 import { Modal } from 'antd';
-
-const imgurURL = "https://api.imgur.com/3/image"
 
 class ImageCapture extends Component {
   //image state
@@ -63,11 +61,10 @@ class ImageCapture extends Component {
       formData.append('image', dataFromURI)
       formData.append('type', 'base64')
 
-      fetch(imgurURL,{
+      fetch("https://api.imgur.com/3/image",{
         method: "POST",
         headers: {
-          // Authorization: 'Client-ID ' + apiKeys.imgurClientID
-          Authorization: 'Client-ID ' + process.env.REACT_APP_IMGURCLIENTID
+          Authorization: 'Client-ID ' + apiKeys.imgurClientID
         },
         body: formData
       })

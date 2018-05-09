@@ -12,8 +12,6 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import usersReducer from './reducers/usersReducer';
-
-require('dotenv').config()
 //import {rootReducer} from './reducers/rootReducer';
 
 //const store = createStore(rootReducer) Needs a reducer/rootReducer is a placeholder
