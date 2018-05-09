@@ -5,7 +5,7 @@ import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
-import apiKeys from '../apiKeys';
+// import apiKeys from '../apiKeys';
 import { Modal, Card, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 
