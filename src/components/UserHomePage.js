@@ -9,8 +9,10 @@ import apiKeys from '../apiKeys';
 import { Modal, Card, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 
-const postURL = `http://localhost:3000/api/v1/posts`
-const selfieURL = `http://localhost:3000/api/v1/photos`
+const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+// const baseURL = `http://localhost:3000/`
+// const postURL = `http://localhost:3000/api/v1/posts`
+// const selfieURL = `http://localhost:3000/api/v1/photos`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 // const faceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`
 const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
@@ -120,7 +122,7 @@ class UserHomePage extends React.Component {
   saveFaceData = () => {
     console.log('in savedata function from userhomepage. try to post this to rails')
 
-    fetch(selfieURL, {
+    fetch(`${baseURL}api/v1/photos`, {
       method: 'POST',
       body: JSON.stringify({
         user_id: this.state.userID,
@@ -176,7 +178,7 @@ class UserHomePage extends React.Component {
   submitFeelings = (event) => {
     event.preventDefault()
 
-    fetch(postURL, {
+    fetch(`${baseURL}api/v1/posts`, {
       method: 'POST',
       body: JSON.stringify({
         user_id: this.state.userID,

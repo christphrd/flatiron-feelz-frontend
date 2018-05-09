@@ -7,7 +7,9 @@ import UserHomePage from './UserHomePage';
 import UserShowPage from './UserShowPage';
 import NavBar from './NavBar';
 
-const usersURL = `http://localhost:3000/api/v1/users/`
+const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+// const baseURL = `http://localhost:3000/`
+// const usersURL = `http://localhost:3000/api/v1/users/`
 
 class LoggedInContainer extends React.Component {
   state = {
@@ -18,7 +20,7 @@ class LoggedInContainer extends React.Component {
   componentDidMount() {
     if (this.props.match.params.id) {
 
-      fetch(usersURL + this.props.match.params.id)
+      fetch(`${baseURL}api/v1/users/` + this.props.match.params.id)
       .then(res => res.json())
       // .then(json => console.log(json))
       .then(json => {
@@ -34,7 +36,7 @@ class LoggedInContainer extends React.Component {
 
   goToShow = (event) => {
     //Take the id and fetch the user info. then change home state to false so renders userShowPage
-    fetch(usersURL + event.target.id)
+    fetch(`${baseURL}api/v1/users/` + event.target.id)
       .then(res => res.json())
       // .then(json => console.log(json))
       .then(json => this.setState({
@@ -51,7 +53,7 @@ class LoggedInContainer extends React.Component {
   }
 
   successfulFeelzSubmit = () => {
-    fetch(usersURL + this.props.usersReducer.userID)
+    fetch(`${baseURL}api/v1/users/` + this.props.usersReducer.userID)
       .then(res => res.json())
       .then(json => this.setState({
         home: false,

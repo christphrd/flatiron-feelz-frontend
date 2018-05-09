@@ -1,6 +1,8 @@
-const loginURL = `http://localhost:3000/api/v1/login`
-const signUpURL = `http://localhost:3000/api/v1/signup`
-const currentUserURL = `http://localhost:3000/api/v1/current_user`
+const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+// const baseURL = `http://localhost:3000/`
+// const loginURL = `http://localhost:3000/api/v1/login`
+// const signUpURL = `http://localhost:3000/api/v1/signup`
+// const currentUserURL = `http://localhost:3000/api/v1/current_user`
 
 export function signInUser(email, password) {
   let loginObject = {
@@ -9,7 +11,7 @@ export function signInUser(email, password) {
   }
 
   return dispatch => {
-    fetch(loginURL, {
+    fetch(`${baseURL}api/v1/login`, {
       method: 'POST',
       body: JSON.stringify(loginObject),
       headers: {
@@ -25,7 +27,7 @@ export function signInUser(email, password) {
 export function signUpUser(signUpObject) {
   //use thunk here
   return dispatch => {
-    fetch(signUpURL, {
+    fetch(`${baseURL}api/v1/signup`, {
       method: 'POST',
       body: JSON.stringify(signUpObject),
       headers: {
@@ -54,7 +56,7 @@ export function logOutUser() {
 export function getCurrentUser() {
   return dispatch => {
     dispatch(loadingUser());
-    fetch(currentUserURL, {
+    fetch(`${baseURL}api/v1/current_user`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

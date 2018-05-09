@@ -5,7 +5,9 @@ import UserItem from './UserItem'
 import ConversationsList from './ConversationsList';
 import { Card } from 'antd';
 
-const usersURL = `http://localhost:3000/api/v1/users/`
+const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+// const baseURL = `http://localhost:3000/`
+// const usersURL = `http://localhost:3000/api/v1/users/`
 
 class UsersList extends React.Component {
   state = {
@@ -13,7 +15,7 @@ class UsersList extends React.Component {
   }
 
   componentDidMount(){
-    fetch(usersURL)
+    fetch(`${baseURL}api/v1/users/`)
     .then(response => response.json())
     .then(json => this.setState({
       users: json
