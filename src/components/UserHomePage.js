@@ -9,8 +9,8 @@ import apiKeys from '../apiKeys';
 import { Modal, Card, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 
-// const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-const baseURL = `http://localhost:3000/`
+const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+// const baseURL = `http://localhost:3000/`
 // const postURL = `http://localhost:3000/api/v1/posts`
 // const selfieURL = `http://localhost:3000/api/v1/photos`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
