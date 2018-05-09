@@ -27,7 +27,7 @@ class NewConversationForm extends React.Component {
         <Form onSubmit={this.handleSubmit}>
           <Input
             type="text"
-            placeholder="Create a Module"
+            placeholder="Create a Room"
             value={this.state.title}
             onChange={this.handleChange}
           /><p></p>
