@@ -6,6 +6,7 @@
     "antd": "^3.4.5",
     "chart.js": "^2.7.2",
     "dom-to-image": "^2.6.0",
+    "eslint-module-utils": "^2.2.0",
     "filestack-js": "^0.11.4",
     "react": "^16.3.2",
     "react-actioncable-provider": "^1.0.3",
