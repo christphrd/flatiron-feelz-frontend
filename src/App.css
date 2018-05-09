@@ -126,7 +126,7 @@ img {
 #user-list {
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 300px;
+  max-height: 305px;
 }
 
 #video {

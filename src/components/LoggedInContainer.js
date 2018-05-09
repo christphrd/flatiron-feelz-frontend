@@ -20,11 +20,15 @@ class LoggedInContainer extends React.Component {
 
       fetch(usersURL + this.props.match.params.id)
       .then(res => res.json())
-      .then(json => this.setState({
-        home: false,
-        clickedUserData: json
-      }))
-      this.props.history.push(`/users/${this.props.match.params.id}`)
+      // .then(json => console.log(json))
+      .then(json => {
+        if (json !== null) {
+          this.setState({home: false, clickedUserData: json})
+          this.props.history.push(`/users/${this.props.match.params.id}`)
+        } else {
+          this.props.history.goBack()
+        }}
+      )
     }
   }
 
