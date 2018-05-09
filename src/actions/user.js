@@ -1,5 +1,5 @@
-const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-// const baseURL = `http://localhost:3000/`
+// const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+const baseURL = `http://localhost:3000/`
 // const loginURL = `http://localhost:3000/api/v1/login`
 // const signUpURL = `http://localhost:3000/api/v1/signup`
 // const currentUserURL = `http://localhost:3000/api/v1/current_user`

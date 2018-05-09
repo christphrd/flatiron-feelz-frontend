@@ -5,8 +5,8 @@ import UserItem from './UserItem'
 import ConversationsList from './ConversationsList';
 import { Card } from 'antd';
 
-const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-// const baseURL = `http://localhost:3000/`
+// const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
+const baseURL = `http://localhost:3000/`
 // const usersURL = `http://localhost:3000/api/v1/users/`
 
 class UsersList extends React.Component {
