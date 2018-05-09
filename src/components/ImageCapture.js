@@ -64,7 +64,8 @@ class ImageCapture extends Component {
       fetch("https://api.imgur.com/3/image",{
         method: "POST",
         headers: {
-          Authorization: 'Client-ID ' + apiKeys.imgurClientID
+          // Authorization: 'Client-ID ' + apiKeys.imgurClientID
+          Authorization: 'Client-ID ' + process.env.REACT_APP_IMGURCLIENTID
         },
         body: formData
       })

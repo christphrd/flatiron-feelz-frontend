@@ -60,7 +60,7 @@ class UserHomePage extends React.Component {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': apiKeys.microsoftFaceKey2
+        'Ocp-Apim-Subscription-Key': process.env.REACT_APP_MICROSOFTFACEKEY2
       },
       body: JSON.stringify({"url": this.state.selfie}) //JSON.stringify is important
     })
