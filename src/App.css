@@ -161,7 +161,8 @@ img {
 }
 
 body {
-  background-color: #444D54;
+  /* background-color: #444D54; */
+  background-color:  rgb(68,74,78);
   background-size: round auto;
   background-position: center center;
   background-image: url("./mist-trees.jpg");
