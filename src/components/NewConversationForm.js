@@ -1,5 +1,6 @@
 import React from 'react';
 import { API_ROOT, HEADERS } from '../constants';
+import { Form, Input, Button} from 'antd';
 
 class NewConversationForm extends React.Component {
   state = {
@@ -23,17 +24,16 @@ class NewConversationForm extends React.Component {
   render = () => {
     return (
       <div className="newConversationForm">
-        <form onSubmit={this.handleSubmit}>
-          <label>New Mod</label>
-          <br />
-          <input
+        <Form onSubmit={this.handleSubmit}>
+          <Input
             type="text"
-            placeholder="Name a Module"
+            placeholder="Create a Module"
             value={this.state.title}
             onChange={this.handleChange}
-          />
-          <input type="submit" /><p></p>
-        </form>
+          /><p></p>
+          {/* <input type="submit" /><p></p> */}
+          <Button size="small" htmlType="submit">Submit</Button><p></p>
+        </Form>
       </div>
     );
   };

@@ -5,7 +5,7 @@
 }
 
 .App-header {
-  background-color: #ADD8E6;
+  /* background-color: #ADD8E6; */
   height: 150px;
   padding: 20px;
   color: white;
@@ -13,7 +13,7 @@
 }
 
 .NavBar {
-  background-color: #ADD8E6;
+  /* background-color: #ADD8E6; */
   height: 40px;
   padding: 0px 20px 20px 20px;
   color: white;
@@ -86,7 +86,7 @@ img {
 
 .center-text {
   text-align: center;
-  padding: 40px
+  padding: 40px;
 }
 
 .dog-image {
@@ -98,13 +98,29 @@ img {
 }
 
 .go-to {
-  color: #1890ff
+  color: #1890ff;
+}
+
+.text-on-bg {
+  color: #fff;
+}
+
+#selfie-station {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 800px;
+}
+
+#mod-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 95px;
 }
 
 #orderedMessages {
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 200px;
+  max-height: 95px;
 }
 
 #user-list {
@@ -145,13 +161,11 @@ img {
 }
 
 body {
-  height: 100%;
-  background-image: url("./mist-trees.jpg");
-  background-color: #424a48;
-  /* Resize to best fit in a whole number of times in x-direction */
-  background-size: round auto; /* Height: auto is to keep aspect ratio */
-  background-repeat:   no-repeat;
+  background-color: #444D54;
+  background-size: round auto;
   background-position: center center;
+  background-image: url("./mist-trees.jpg");
+  background-repeat:   no-repeat;
 }
 
 ul {

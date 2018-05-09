@@ -6,7 +6,7 @@ import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
 import EmotionStats from './EmotionStats';
 import apiKeys from '../apiKeys';
-import { Modal, Card } from 'antd';
+import { Modal, Card, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
 
 const postURL = `http://localhost:3000/api/v1/posts`
@@ -210,9 +210,11 @@ class UserHomePage extends React.Component {
       // </div>
       [<div className="first-column">
         <Card title="Selfie Station" style={{ width: 500 }}>
-          <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
-          <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br>
-          <p><button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</button></p>
+          <div id="selfie-station">
+            <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
+            <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br>
+            <p><Button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</Button></p>
+          </div>
         </Card>
       </div>,
       <div className="second-column">

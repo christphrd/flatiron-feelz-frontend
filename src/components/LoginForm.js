@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { signInUser, signUpUser } from '../actions/user';
-import { Form, Icon, Input, Button } from 'antd';
 import { withRouter } from 'react-router-dom';
+import { signInUser, signUpUser } from '../actions/user';
+import { Form, Icon, Input, Button} from 'antd';
 
 class LoginForm extends React.Component {
   state = {
@@ -46,13 +46,13 @@ class LoginForm extends React.Component {
     console.log(this.props)
     return(
       <div id="welcome-form">
-        <h1>Login</h1>
+        <h1 className="text-on-bg">Login</h1>
         <Form onSubmit={this.loginSubmit} className="login-form">
           <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} name="email" type="text" placeholder="Email" onChange={this.handleChange}></Input>
           <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} name="password" type="password" placeholder="Password" onChange={this.handleChange}></Input><p></p>
           <Button ghost htmlType="submit">Login</Button>
         </Form><p></p>
-        <h1>Sign Up</h1>
+        <h1 className="text-on-bg">Sign Up</h1>
         <Form onSubmit={this.signUpSubmit} className="sign-up-form">
           <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="firstName" type="text" placeholder="First Name (required)" onChange={this.handleChange}></Input>
           <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} name="lastName" type="text" placeholder="Last Name (required)" onChange={this.handleChange}></Input>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Doughnut} from 'react-chartjs-2';
+import { Button } from 'antd';
 
 class EmotionStats extends React.Component {
   // state = {
@@ -64,7 +65,7 @@ class EmotionStats extends React.Component {
           }],
         }}/> : null}
         {/* <p><button id="post-selfie-data" alt="selfie-data" onClick={this.props.saveFaceData}>Share Selfie Stuff</button></p> */}
-        <button id="analyze-selfie" alt="analyze" onClick={this.props.getFaceStats}>Analyze Selfie with AI</button>
+        <Button size="small" id="analyze-selfie" alt="analyze" onClick={this.props.getFaceStats}>Analyze Selfie with AI</Button>
       </div>
     )
   }

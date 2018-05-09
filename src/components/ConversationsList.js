@@ -60,7 +60,7 @@ class ConversationsList extends React.Component {
         ) : null}
         <h2>Mod Chatrooms</h2>
         <NewConversationForm />
-        <ul>{mapConversations(conversations, this.handleClick)}</ul>
+        <ul id="mod-list">{mapConversations(conversations, this.handleClick)}</ul>
         {activeConversation ? (
           <MessagesArea
             conversation={findActiveConversation(

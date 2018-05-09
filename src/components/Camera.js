@@ -1,10 +1,11 @@
 import React from 'react';
+import { Button } from 'antd';
 
 const Camera = props => {
   return(
     <div className="camera">
       <video id="video"></video><br></br>
-      <button id="startButton" onClick={ props.handleStartClick }>Take Selfie</button>
+      <Button size="small" id="startButton" onClick={ props.handleStartClick }>Take Selfie</Button>
     </div>
   )
 }

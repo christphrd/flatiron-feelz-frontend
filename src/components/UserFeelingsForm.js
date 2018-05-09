@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Form, Input, Button } from 'antd';
+
+const { TextArea } = Input;
 
 class UserFeelingsForm extends React.Component {
 
@@ -11,10 +14,11 @@ class UserFeelingsForm extends React.Component {
           <li>Write your feelz. (required)</li>
           <li>Share and go to your page.</li>
         </ul><p></p>
-        <form onSubmit={this.props.submitFeelings}>
-          <textarea rows="4" cols="50" name="feelings" placeholder="Feelz (required). You can share a =)" onChange={this.props.inputFeelingz}></textarea><br></br>
-          <input type="submit" value="Share all your Feelings & Go See Your Page"/>
-        </form>
+        <Form onSubmit={this.props.submitFeelings}>
+          <TextArea rows={4} cols="50" name="feelings" placeholder="Feelz (required). You can share a =)" onChange={this.props.inputFeelingz}></TextArea><p></p>
+          {/* <input type="submit" value="Share all your Feelings & Go See Your Page"/> */}
+          <Button size="small" htmlType="submit">Share all your Feelings & Go See Your Page</Button><p></p>
+        </Form>
       </div>
     )
   }

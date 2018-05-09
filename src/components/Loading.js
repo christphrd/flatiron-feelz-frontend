@@ -6,7 +6,7 @@ class Loading extends React.Component {
     return(
       <div>
         <Spin className="center" size="large" />
-        <p><h1>Loading...</h1></p>
+        <p><h1 style={{color:'#fff'}}>Loading...</h1></p>
       </div>
     )
   }
