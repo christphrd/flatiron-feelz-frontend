@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Card } from 'antd';
 // import { getUsers } from '../actions/user';
 import UserItem from './UserItem'
 import ConversationsList from './ConversationsList';
-import { Card } from 'antd';
+import { baseURL } from '../constants';
+
 
 // const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-const baseURL = `http://localhost:3000/`
+// const baseURL = `http://localhost:3000/`
 // const usersURL = `http://localhost:3000/api/v1/users/`
 
 class UsersList extends React.Component {

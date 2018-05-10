@@ -6,9 +6,10 @@ import UsersList from './UsersList';
 import UserHomePage from './UserHomePage';
 import UserShowPage from './UserShowPage';
 import NavBar from './NavBar';
+import { baseURL } from '../constants';
 
 // const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-const baseURL = `http://localhost:3000/`
+// const baseURL = `http://localhost:3000/`
 // const usersURL = `http://localhost:3000/api/v1/users/`
 
 class LoggedInContainer extends React.Component {
