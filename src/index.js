@@ -22,8 +22,6 @@ const rootReducer = combineReducers({ usersReducer });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-console.log("my store:", store)
-console.log("state is", store.getState())
 ReactDOM.render(
   <Provider store={store}>
   {/* <Provider> */}

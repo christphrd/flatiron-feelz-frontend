@@ -8,7 +8,6 @@ import { Card } from 'antd';
 class UserShowPage extends React.Component {
 
   render() {
-    console.log('mounted show page')
     return(
       [<div className="first-column">
         <Card title={"Latest Feelings Selfie of " + this.props.clickedUserData.first_name + " " + this.props.clickedUserData.last_name} style={{ width: 500 }}>

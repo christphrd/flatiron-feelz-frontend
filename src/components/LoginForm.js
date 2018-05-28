@@ -43,7 +43,6 @@ class LoginForm extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div id="welcome-form">
         <h1 className="text-on-bg">Login</h1>

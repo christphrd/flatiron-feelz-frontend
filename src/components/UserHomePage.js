@@ -45,7 +45,7 @@ class UserHomePage extends React.Component {
     this.setState({
       ...this.state,
       selfie: json.data.link
-    }, () => console.log(this.state))
+    })
     this.successfulImgurSaved()
   }
 
@@ -57,7 +57,6 @@ class UserHomePage extends React.Component {
   }
 
   getFaceStats = () => {
-    console.log("get stats from Microsoft Face API with this func in UserHomePage")
 
     fetch(emotionFaceAPI, {
       method: "POST",
@@ -108,7 +107,7 @@ class UserHomePage extends React.Component {
           neutral: json[0].faceAttributes.emotion.neutral,
           sadness: json[0].faceAttributes.emotion.sadness,
           surprise: json[0].faceAttributes.emotion.surprise
-        }, () => console.log(this.state))
+        })
       } else {
         this.selfieAnalysisError()
       }
@@ -123,7 +122,6 @@ class UserHomePage extends React.Component {
   }
 
   saveFaceData = () => {
-    console.log('in savedata function from userhomepage. try to post this to rails')
 
     fetch(`${baseURL}api/v1/photos`, {
       method: 'POST',
