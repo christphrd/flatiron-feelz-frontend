@@ -5,4 +5,4 @@ You can find a video demonstration of the app [here](https://youtu.be/f73O5zT0Xv
 
 Currently, the analysis of the facial expression with Microsoft Face API is unavailable.<br>
 
-It is currently hosted on Heroku. Feel free to check it out [here](https://flatironfeelz.herokuapp.com/).
+It is currently hosted on Heroku. Feel free to check it out [here](https://flatironfeelz.herokuapp.com/). (The heroku branch has been deployed, not master.)
