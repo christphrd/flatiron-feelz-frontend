@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Camera from './Camera';
 import Selfie from './Selfie';
-import apiKeys from '../apiKeys.js';
 import { Modal } from 'antd';
 
 class ImageCapture extends Component {
@@ -64,7 +63,7 @@ class ImageCapture extends Component {
       fetch("https://api.imgur.com/3/image",{
         method: "POST",
         headers: {
-          Authorization: 'Client-ID ' + apiKeys.imgurClientID
+          Authorization: 'Client-ID f8f96f229645e9c'
         },
         body: formData
       })
@@ -125,8 +124,7 @@ class ImageCapture extends Component {
         <ul>
           <li>Take selfie.</li>
           <li>Save the selfie.</li>
-          <li>Analyze it.</li>
-          <li>Share it. (free feel to skip to this after saving your selfie)</li>
+          <li>Share it.</li>
         </ul><p></p>
         <Camera handleStartClick={ this.handleStartClick }/><br></br>
         <canvas id="canvas" hidden></canvas>

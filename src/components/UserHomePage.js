@@ -7,18 +7,13 @@ import { withRouter } from 'react-router-dom';
 import UserFeelingsForm from './UserFeelingsForm';
 import DogSpiritSelection from './DogSpiritSelection';
 import ImageCapture from './ImageCapture';
-import EmotionStats from './EmotionStats';
-// import apiKeys from '../apiKeys';
+// import EmotionStats from './EmotionStats';
 import { baseURL } from '../constants';
 
 
-// const baseURL = `https://floating-wildwood-28213.herokuapp.com/`
-// const baseURL = `http://localhost:3000/`
-// const postURL = `http://localhost:3000/api/v1/posts`
-// const selfieURL = `http://localhost:3000/api/v1/photos`
 const dogAPI = `https://random.dog/woof.json?filter=mp4,webm`
 // const faceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=true&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`
-const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
+// const emotionFaceAPI = `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes=emotion`
 
 class UserHomePage extends React.Component {
   componentDidMount() {
@@ -56,63 +51,37 @@ class UserHomePage extends React.Component {
     });
   }
 
-  getFaceStats = () => {
-
-    fetch(emotionFaceAPI, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': apiKeys.microsoftFaceKey2
-      },
-      body: JSON.stringify({"url": this.state.selfie}) //JSON.stringify is important
-    })
-    .then(res => res.json())
-    // .then(json => this.setState({
-    //   ...this.state,
-    //   //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
-    //   stats: true,
-    //   anger: json[0].faceAttributes.emotion.anger,
-    //   contempt: json[0].faceAttributes.emotion.contempt,
-    //   disgust: json[0].faceAttributes.emotion.disgust,
-    //   fear: json[0].faceAttributes.emotion.fear,
-    //   happiness: json[0].faceAttributes.emotion.happiness,
-    //   neutral: json[0].faceAttributes.emotion.neutral,
-    //   sadness: json[0].faceAttributes.emotion.sadness,
-    //   surprise: json[0].faceAttributes.emotion.surprise
-    // }, () => console.log(this.state)))
-    // .then(json => this.setState({
-    //   ...this.state,
-    //   //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
-    //   stats: true,
-    //   anger: json[0].faceAttributes.emotion.anger,
-    //   contempt: json[0].faceAttributes.emotion.contempt,
-    //   disgust: json[0].faceAttributes.emotion.disgust,
-    //   fear: json[0].faceAttributes.emotion.fear,
-    //   happiness: json[0].faceAttributes.emotion.happiness,
-    //   neutral: json[0].faceAttributes.emotion.neutral,
-    //   sadness: json[0].faceAttributes.emotion.sadness,
-    //   surprise: json[0].faceAttributes.emotion.surprise
-    // }, () => console.log(this.state)))
-    .then(json => {
-      if (json[0]) {
-        this.setState({
-          ...this.state,
-          //stats: json[0].faceAttributes //Stats is an obj with emotion as a key
-          stats: true,
-          anger: json[0].faceAttributes.emotion.anger,
-          contempt: json[0].faceAttributes.emotion.contempt,
-          disgust: json[0].faceAttributes.emotion.disgust,
-          fear: json[0].faceAttributes.emotion.fear,
-          happiness: json[0].faceAttributes.emotion.happiness,
-          neutral: json[0].faceAttributes.emotion.neutral,
-          sadness: json[0].faceAttributes.emotion.sadness,
-          surprise: json[0].faceAttributes.emotion.surprise
-        })
-      } else {
-        this.selfieAnalysisError()
-      }
-    })
-  }
+  //API key expired
+  // getFaceStats = () => {
+  //
+  //   fetch(emotionFaceAPI, {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Ocp-Apim-Subscription-Key': apiKeys.microsoftFaceKey2
+  //     },
+  //     body: JSON.stringify({"url": this.state.selfie}) //JSON.stringify is important
+  //   })
+  //   .then(res => res.json())
+  //   .then(json => {
+  //     if (json[0]) {
+  //       this.setState({
+  //         ...this.state,
+  //         stats: true,
+  //         anger: json[0].faceAttributes.emotion.anger,
+  //         contempt: json[0].faceAttributes.emotion.contempt,
+  //         disgust: json[0].faceAttributes.emotion.disgust,
+  //         fear: json[0].faceAttributes.emotion.fear,
+  //         happiness: json[0].faceAttributes.emotion.happiness,
+  //         neutral: json[0].faceAttributes.emotion.neutral,
+  //         sadness: json[0].faceAttributes.emotion.sadness,
+  //         surprise: json[0].faceAttributes.emotion.surprise
+  //       })
+  //     } else {
+  //       this.selfieAnalysisError()
+  //     }
+  //   })
+  // }
 
   selfieAnalysisError = () => {
     Modal.error({
@@ -215,8 +184,9 @@ class UserHomePage extends React.Component {
         <Card title="Selfie Station" style={{ width: 500 }}>
           <div id="selfie-station">
             <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
-            <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br>
-            <p><Button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</Button></p>
+            {/* API KEY expired */}
+            {/* <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br> */}
+            <p>{this.state.selfie ? <Button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</Button> : null}</p><br></br>
           </div>
         </Card>
       </div>,
@@ -247,15 +217,3 @@ export default compose(withRouter,
 )(UserHomePage)
 
 // export default connect(mapStateToProps, null)(UserHomePage)
-
-//{userID: 13, feelings: "Test", dogSpirit: "https://random.dog/6129aa24-e224-4f7b-8058-e33cca8bfab0.JPG", selfie: "https://i.imgur.com/z5akVOJ.jpg", stats: {emotion: {
-            //     anger: 0.575,
-            //     contempt: 0,
-            //     disgust: 0.006,
-            //     fear: 0.008,
-            //     happiness: 0.394,
-            //     neutral: 0.013,
-            //     sadness: 0,
-            //     surprise: 0.004
-            // }}
-//stats: {emotion: {anger: 0, contempt: 0, disgust: 0, fear: 0, happiness: 0}}
