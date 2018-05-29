@@ -186,7 +186,6 @@ class UserHomePage extends React.Component {
             <p><ImageCapture saveSelfie={this.saveSelfie}/></p>
             {/* API KEY expired */}
             {/* <p>{this.state.selfie ? <EmotionStats getFaceStats={this.getFaceStats} homeData={this.state}/> : null}</p><br></br> */}
-            <p>Analysis Feature No Longer Available due to expired key</p>
             <p>{this.state.selfie ? <Button id="post-selfie-data" alt="selfie-data" onClick={this.saveFaceData}>Share Selfie Stuff</Button> : null}</p><br></br>
           </div>
         </Card>

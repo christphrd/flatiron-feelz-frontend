@@ -125,6 +125,7 @@ class ImageCapture extends Component {
           <li>Take selfie.</li>
           <li>Save the selfie.</li>
           <li>Share it.</li>
+          <li>(Analysis Feature No Longer Available due to expired key for Microsoft Face API)</li>
         </ul><p></p>
         <Camera handleStartClick={ this.handleStartClick }/><br></br>
         <canvas id="canvas" hidden></canvas>
