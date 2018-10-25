@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import {getCurrentUser} from './actions/user.js';
+import Header from './components/Header'
 import LoginForm from './components/LoginForm';
 import LoggedInContainer from './components/LoggedInContainer';
 import Loading from './components/Loading';
@@ -20,25 +21,14 @@ class App extends Component {
     if (this.props.usersReducer.loading) {
       return (
         <div>
-          <header className="App-header">
-            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
-            <p>
-              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
-            </p>
-          </header>
+          <Header />
           <Loading />
         </div>
       )
     } else if (this.props.usersReducer.loggedIn){
       return(
         <div>
-          <header className="App-header">
-            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
-            <p>
-              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
-            </p>
-          </header>
-          {/* <LoggedInContainer /> */}
+          <Header />
           <Switch>
             <Route exact path="/home" component={LoggedInContainer}/>
             <Route exact path="/users/:id" component={LoggedInContainer}/>
@@ -49,12 +39,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">// Welcome to Flatiron Feelz</h1>
-            <p>
-              The Blogging Platform for the Flatiron Grad | Feelings Friday on the go
-            </p>
-          </header>
+          <Header />
 
           {/* <LoginForm /> */}
           <Switch>
