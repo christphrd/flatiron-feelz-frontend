@@ -113,6 +113,7 @@ class UserHomePage extends React.Component {
         this.selfieAnalysisError()
       }
     })
+    .catch(err => console.log(err))
   }
 
   selfieAnalysisError = () => {
